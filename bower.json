@@ -1,0 +1,18 @@
+{
+  "name": "swapr-client",
+  "version": "0.0.1",
+  "description": "swapr client front-end",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.25",
+    "bootstrap": "~3.2.0",
+    "angular-bootstrap": "~0.11.2"
+  }
+}
