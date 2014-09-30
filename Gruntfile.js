@@ -30,10 +30,7 @@ module.exports = function(grunt) {
         watch: {
             dev: {
                 files: ['app/**'],
-                tasks: ['copy:dev','sass:dev'],
-                options: {
-                    livereload: true
-                }
+                tasks: ['copy:dev','sass:dev']
             }
         }
     });
