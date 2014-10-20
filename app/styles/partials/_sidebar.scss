@@ -1,0 +1,15 @@
+#sidebar {
+  @include container;
+
+  position: fixed;
+  width: 200px;
+  height: 100%;
+
+  border-right: 2px solid darken($emerald, 15);
+  background-color: $emerald;
+
+  .title {
+    @include container-header(darken($emerald, 10));
+    color: white;
+  }
+}

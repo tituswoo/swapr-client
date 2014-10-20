@@ -2,7 +2,7 @@
 <html ng-app="swapr">
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href=""/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css"/>
 
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
@@ -12,9 +12,31 @@
     <title>SWAPR</title>
 </head>
 <body ng-controller="MainCtrl">
-<div class="container-fluid">
+<div id="menubar">
     <h1>SWAPR</h1>
-    <p>{{hello}}</p>
+</div>
+<div id="sidebar">
+    <h1 class="title">Menu</h1>
+</div>
+<div id="main">
+    <h1 class="title">Assignments</h1>
+    <a class="card" href="#">
+        <div class="status">Incomplete</div>
+        <h3>Lab 1 Video Upload</h3>
+        <p>Due on 8/31/14 at 11:59 pm (4 days)</p>
+    </a>
+    <a class="card" href="#">
+        <div class="status">Incomplete</div>
+        <h3>Lab 1 Video Upload</h3>
+        <p>Due on 8/31/14 at 11:59 pm (4 days)</p>
+    </a>
+    <a class="card" href="#">
+        <div class="status">Incomplete</div>
+        <h3>Lab 1 Video Upload</h3>
+        <p>Due on 8/31/14 at 11:59 pm (4 days)</p>
+    </a>
 </div>
 </body>
+
+<script src="//localhost:35729/livereload.js"></script>
 </html>
