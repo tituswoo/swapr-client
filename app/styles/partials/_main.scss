@@ -1,0 +1,9 @@
+#main {
+  @include container;
+  margin-left: 222px;
+
+  .title {
+    @include container-header($peter-river);
+    color: white;
+  }
+}

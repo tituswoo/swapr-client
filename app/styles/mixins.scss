@@ -1,0 +1,15 @@
+@mixin container {
+  padding: $default-padding;
+}
+
+@mixin container-header($bkg) {
+  font-size: 17px;
+  font-weight: normal;
+  text-transform: uppercase;
+
+  margin: -$default-padding;
+  margin-bottom: $default-padding;
+  padding: $default-padding - 5px;
+  background-color: $bkg;
+  border-bottom: 5px solid darken($bkg, 15);
+}
