@@ -7,18 +7,19 @@
 
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script type="text/javascript" src="../dist/app.js"></script>
+    <!--<script type="text/javascript" src="sidebar/SidebarCtrl.js"></script>-->
     <title>SWAPR</title>
 </head>
 <body ng-controller="MainCtrl">
 <div id="menubar">
     <h1>SWAPR</h1>
 </div>
-<div id="sidebar">
-    <h1 class="title">Menu</h1>
+<div id="sidebar" ng-include="'templates/sidebar.html'">
 </div>
-<div id="main">
+<div id="main" ui-view>
     <h1 class="title">Assignments</h1>
     <a class="card" href="#">
         <div class="status">Incomplete</div>
@@ -37,6 +38,5 @@
     </a>
 </div>
 </body>
-
-<script src="//localhost:35729/livereload.js"></script>
+<!--<script src="//localhost:35729/livereload.js"></script>-->
 </html>
