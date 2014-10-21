@@ -2,6 +2,7 @@
   @include container;
 
   position: fixed;
+  margin-top: 37px;
   width: 200px;
   height: 100%;
 
@@ -23,5 +24,9 @@
       cursor: pointer;
       border-color: darken($emerald, 20);
     }
+  }
+
+  @media screen and (max-width: $break-small) {
+    display: none;
   }
 }

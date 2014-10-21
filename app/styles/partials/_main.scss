@@ -6,4 +6,8 @@
     @include container-header($peter-river);
     color: white;
   }
+
+  @media screen and (max-width: $break-small) {
+    margin-left: 0;
+  }
 }
