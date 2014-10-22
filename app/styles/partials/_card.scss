@@ -10,9 +10,13 @@
   text-decoration: none;
   transition: 0.1s linear all;
 
-  &:hover {
-    background-color: darken($clouds, 5);
+  .title {
+    margin-bottom: 10px;
   }
+
+  /*&:hover {
+    background-color: darken($clouds, 5);
+  }*/
 
   .status {
     float: right;
