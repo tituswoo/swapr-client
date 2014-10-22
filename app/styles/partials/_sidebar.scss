@@ -9,7 +9,7 @@
   border-right: 2px solid darken($emerald, 15);
   background-color: $emerald;
 
-  .title {
+  h1.title {
     @include container-header(darken($emerald, 10));
     color: white;
   }
@@ -19,6 +19,8 @@
     padding-bottom: 5px;
     margin-bottom: 5px;
     border-bottom: 2px solid darken($emerald, 10);
+    text-decoration: none;
+    color: black;
 
     &:hover {
       cursor: pointer;

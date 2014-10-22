@@ -10,6 +10,7 @@
   margin: -$default-padding;
   margin-bottom: $default-padding;
   padding: $default-padding - 5px;
+  padding-left: $default-padding;
   background-color: $bkg;
   border-bottom: 5px solid darken($bkg, 15);
 }
