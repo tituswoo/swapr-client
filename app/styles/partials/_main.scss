@@ -1,6 +1,7 @@
 #main {
   @include container;
   margin-left: 222px;
+  padding-top: 47px;
 
   .title {
     @include container-header($peter-river);
