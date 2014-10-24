@@ -13,6 +13,7 @@
     <script type="text/javascript" src="sidebar/SidebarCtrl.js"></script>
     <script type="text/javascript" src="grades/GradesCtrl.js"></script>
     <script type="text/javascript" src="grades/GradesDetailsCtrl.js"></script>
+    <script type="text/javascript" src="assignments/AssignmentsCtrl.js"></script>
 
     <title>SWAPR</title>
 </head>
@@ -23,22 +24,8 @@
 <div id="sidebar" ng-include="'templates/sidebar.html'">
 </div>
 <div id="main" ui-view>
-    <h1 class="title">Assignments</h1>
-    <a class="card" href="#">
-        <div class="status">Incomplete</div>
-        <h3>Lab 1 Video Upload</h3>
-        <p>Due on 8/31/14 at 11:59 pm (4 days)</p>
-    </a>
-    <a class="card" href="#">
-        <div class="status">Incomplete</div>
-        <h3>Lab 1 Video Upload</h3>
-        <p>Due on 8/31/14 at 11:59 pm (4 days)</p>
-    </a>
-    <a class="card" href="#">
-        <div class="status">Incomplete</div>
-        <h3>Lab 1 Video Upload</h3>
-        <p>Due on 8/31/14 at 11:59 pm (4 days)</p>
-    </a>
+    <div id="assignments" ng-include="'templates/assignments.html'">
+    </div>
 </div>
 </body>
 <!--<script src="//localhost:35729/livereload.js"></script>-->
