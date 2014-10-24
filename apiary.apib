@@ -1,0 +1,104 @@
+FORMAT: 1A
+
+# SWAPR API
+
+API for the MOOC SWAPR application.
+
+# Group Grades
+All operations that have to do with getting grade information.
+
+## Grades [/grades]
+A collection of all grades for a particular student.
+
+### List all Grades [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": "398572398572398657",
+            "title": "Lab 1 Assignment",
+            "grade": "89"
+        }, {
+            "id": "398579528572398930",
+            "title": "Lab 2 Assignment",
+            "grade": "99"
+        }]
+
+## Grade [/grades/{id}]
+A single Grade object with all of its details.
+
++ Parameters
+    + id (required, string) ... String `id` that corresponds to a grade in the student's gradebook.
+
+### Get a Grade [GET]
++ Response 200 (application/json)
+
+        {
+            "id": "398572398572398657",
+            "title": "Lab 1 Assignment",
+            "grade": "89"
+        }
+
+# Group Assignments
+## Assignments [/assignments]
+Assignments related resources of the **SWAPR API**
+
+### List all Assignments [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "title": "Lab 1 Video Upload",
+                "due": "2014-10-24T21:13:56.703Z",
+                "status": "complete",
+                "id": "1110471398572098651"
+            },
+            {
+                "title": "Lab 2 Video Upload",
+                "due": "2014-10-26T05:13:00.703Z",
+                "status": "incomplete",
+                "id": "1752945601572987520"
+            }
+        ]
+
+
+# Group Notes
+Notes related resources of the **Notes API**
+
+## Notes Collection [/notes]
+### List all Notes [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "title": "Jogging in park"
+        }, {
+          "id": 2, "title": "Pick-up posters from post-office"
+        }]
+
+### Create a Note [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+## Note [/notes/{id}]
+A single Note object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Note [DELETE]
++ Response 204
