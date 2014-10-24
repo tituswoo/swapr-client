@@ -2,7 +2,8 @@ FORMAT: 1A
 
 # SWAPR API
 
-API for the MOOC SWAPR application.
+API for the MOOC SWAPR application. This is a super rough draft that's missing a
+lot at the moment.
 
 # Group Grades
 All operations that have to do with getting grade information.
@@ -27,9 +28,9 @@ A collection of all grades for a particular student.
 A single Grade object with all of its details.
 
 + Parameters
-    + id (required, string) ... String `id` that corresponds to a grade in the student's gradebook.
+    + id (required, string) ... String `id` of the grade to retrieve.
 
-### Get a Grade [GET]
+### Retrieve a Grade [GET]
 + Response 200 (application/json)
 
         {
@@ -60,45 +61,56 @@ Assignments related resources of the **SWAPR API**
             }
         ]
 
-
-# Group Notes
-Notes related resources of the **Notes API**
-
-## Notes Collection [/notes]
-### List all Notes [GET]
-+ Response 200 (application/json)
-
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
-
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
+## Assignment [/assignments/{id}]
+A single Assignment object with all its details.
 
 + Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + id (required, string) ... String `id` of the assignment to retrieve.
 
-### Retrieve a Note [GET]
+### Retrieve an Assignment [GET]
 + Response 200 (application/json)
 
-    + Header
+        {
+            "title": "Lab 1 Video Upload",
+            "due": "2014-10-24T21:13:56.703Z",
+            "status": "complete",
+            "id": "1110471398572098651"
+        }
 
-            X-My-Header: The Value
+# Group Profile
+Profile related resoures of the **SWAPR API**.
 
-    + Body
+## Profile [/profile/{id}]
+A Profile object.
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+### Retrieve a Profile [GET]
++ Response 200 (application/json)
 
-### Remove a Note [DELETE]
-+ Response 204
+        {
+            "Name": "John Doe",
+            "GTID": "999999999",
+            "Year": "2",
+            "Picture": "35893285793287592387523.jpg",
+            "Major": "Computer Science"
+        }
+        
+### Update a Profile [PUT]
++ Request (application/json)
+
+        {
+            "Name": "John Doe",
+            "GTID": "999999999",
+            "Year": "3",
+            "Picture": "99999999999997592387523.jpg",
+            "Major": "Electrical Engineering"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "Name": "John Doe",
+            "GTID": "999999999",
+            "Year": "3",
+            "Picture": "99999999999997592387523.jpg",
+            "Major": "Electrical Engineering"
+        }
