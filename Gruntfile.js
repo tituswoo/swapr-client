@@ -52,9 +52,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-bower-task');
+    grunt.loadNpmTasks('grunt-npm-install');
 
     // For now just copy everything; later we will want to do other stuff.
     grunt.registerTask('dev', ['clean:dev', 'copy:dev', 'sass:dev']);
     grunt.registerTask('serve', ['watch:dev']);
-    grunt.registerTask('install',['bower:install']);
+    grunt.registerTask('install',['bower:install','npm-install']);
 };
