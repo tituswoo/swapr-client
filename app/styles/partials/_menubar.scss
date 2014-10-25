@@ -1,12 +1,32 @@
 #menubar {
-  position: fixed;
-  left: 0; right: 0;
-  padding: 5px;
-  color: white;
-  background-color: $midnight-blue;
-  border-bottom: 1px solid $asbestos;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    padding-left: $default-padding;
+    color: white;
+    background-color: $midnight-blue;
+    border-bottom: 1px solid black;
+    overflow: visible;
 
-  h1 {
-    font-size: 20px;
-  }
+    h1 {
+        font-size: 20px;
+        font-weight: 100;
+
+        a {
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
+
+    #profile-menu {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+    }
 }

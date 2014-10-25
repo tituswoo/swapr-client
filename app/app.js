@@ -6,12 +6,22 @@ angular.module('swapr', ['ui.bootstrap', 'ui.router']);
 
 angular.module('swapr').controller('MainCtrl', function ($scope) {
     $scope.hello = 'hi there!';
+    $scope.menuVisible = false;
+
+    $scope.toggleMenu = function () {
+        $scope.menuVisible = !$scope.menuVisible;
+    };
 });
 
 angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: 'templates/dashboard.html',
+            controller: 'DashboardCtrl'
+        })
         .state('assignments', {
             url: '/assignments',
             templateUrl: 'templates/assignments.html',
@@ -34,7 +44,8 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('profile', {
             url: '/profile',
-            templateUrl: 'templates/profile.html'
+            templateUrl: 'templates/profile.html',
+            controller: 'ProfileCtrl'
         })
         .state('peerreviews', {
             url: '/review',

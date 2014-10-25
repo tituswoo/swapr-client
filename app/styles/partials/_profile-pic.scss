@@ -1,0 +1,7 @@
+.profile-pic {
+    @extend .circle;
+    @extend .pull-left;
+    width: 100px;
+    height: 100px;
+    border: 2px solid $midnight-blue;
+}

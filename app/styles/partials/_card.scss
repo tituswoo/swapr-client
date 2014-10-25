@@ -22,3 +22,10 @@
     float: right;
   }
 }
+
+.card-inline {
+    @extend .pull-left;
+    @extend .card;
+    margin-right: $default-padding;
+    margin-bottom: $default-padding;
+}

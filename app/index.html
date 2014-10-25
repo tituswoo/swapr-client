@@ -11,23 +11,25 @@
 
     <script type="text/javascript" src="../dist/app.js"></script>
     <script type="text/javascript" src="sidebar/SidebarCtrl.js"></script>
+    <script type="text/javascript" src="dashboard/DashboardCtrl.js"></script>
     <script type="text/javascript" src="grades/GradesCtrl.js"></script>
     <script type="text/javascript" src="grades/GradesDetailsCtrl.js"></script>
     <script type="text/javascript" src="assignments/AssignmentsCtrl.js"></script>
     <script type="text/javascript" src="assignments/PeerReviewCtrl.js"></script>
+    <script type="text/javascript" src="profile/ProfileCtrl.js"></script>
 
     <title>SWAPR</title>
 </head>
 <body ng-controller="MainCtrl">
 <div id="menubar">
-    <h1>SWAPR</h1>
+    <h1><a ng-click="$state.go('profile')">SWAPR</a></h1>
+    <div id="profile-menu" ui-sref="profile">
+        <p>George P. Burdell</p>
+    </div>
 </div>
 <div id="sidebar" ng-include="'templates/sidebar.html'">
 </div>
-<div id="main" ui-view>
-    <div id="assignments" ng-include="'templates/assignments.html'">
-    </div>
-</div>
+<div id="main" ui-view></div>
 </body>
 <!--<script src="//localhost:35729/livereload.js"></script>-->
 </html>
