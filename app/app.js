@@ -14,7 +14,8 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('assignments', {
             url: '/assignments',
-            templateUrl: 'templates/assignments.html'
+            templateUrl: 'templates/assignments.html',
+            controller: 'AssignmentsCtrl'
         })
         .state('grades', {
             abstract: true,
@@ -34,5 +35,10 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
         .state('profile', {
             url: '/profile',
             templateUrl: 'templates/profile.html'
+        })
+        .state('peerreviews', {
+            url: '/review',
+            templateUrl: 'templates/peerReviewMenu.html',
+            controller: 'PeerReviewCtrl'
         })
 });

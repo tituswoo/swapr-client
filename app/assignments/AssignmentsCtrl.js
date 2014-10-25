@@ -8,6 +8,15 @@ angular.module('swapr').controller('AssignmentsCtrl', function ($scope, $statePa
             dueDate: '8/31/14',
             dueTime: '11:59 pm',
             status: 'Incomplete',
+            type: 'video',
+            id: $stateParams.id
+        },
+        {
+            title: 'Lab 1 Peer Review',
+            dueDate: '8/31/14',
+            dueTime: '11:59 pm',
+            status: 'Incomplete',
+            type: 'review',
             id: $stateParams.id
         }
     ]

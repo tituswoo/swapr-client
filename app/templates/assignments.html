@@ -1,8 +1,6 @@
-<div ng-controller="AssignmentsCtrl">
-    <h1 class="title">Assignments</h1>
-    <a class="card" ng-repeat="assignment in assignments" href="#">
-        <div class="status">{{assignment.status}}</div>
-        <h3>{{assignment.title}}</h3>
-        <p>Due on {{assignment.dueDate}} at {{assignment.dueTime}} (4 days)</p>
-    </a>
-</div>
+<h1 class="title">Assignments</h1>
+<a class="card" ng-repeat="assignment in assignments" href="#">
+    <div class="status">{{assignment.status}}</div>
+    <h3>{{assignment.title}}</h3>
+    <p>Due on {{assignment.dueDate}} at {{assignment.dueTime}} (4 days)</p>
+</a>

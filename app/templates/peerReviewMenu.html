@@ -1,0 +1,10 @@
+<h1 class="title">{{curAssignment.title}}</h1>
+<a class="card">
+    <p>{{rubric}}</p>
+    <button ng-click="hideReviews=false" ng-init="hideReviews=true">Okay, show me the videos</button>
+</a>
+
+<a class="card" ng-repeat="review in reviewList" ng-hide="hideReviews" href="#">
+    <h3>{{review.title}}</h3>
+    <p>{{review.percentage}}% done</p>
+</a>
