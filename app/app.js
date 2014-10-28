@@ -52,4 +52,9 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/peerReviewMenu.html',
             controller: 'PeerReviewCtrl'
         })
+        .state('upload', {
+            url: '/upload',
+            templateUrl: 'templates/upload.html',
+            controller: 'UploadCtrl'
+        })
 });
