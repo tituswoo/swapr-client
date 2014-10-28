@@ -9,6 +9,7 @@ angular.module('swapr').controller('AssignmentsCtrl', function ($scope, $statePa
             dueTime: '11:59 pm',
             status: 'Incomplete',
             type: 'video',
+            route: 'upload',
             id: $stateParams.id
         },
         {
@@ -17,6 +18,7 @@ angular.module('swapr').controller('AssignmentsCtrl', function ($scope, $statePa
             dueTime: '11:59 pm',
             status: 'Incomplete',
             type: 'review',
+            route: 'peerreviews',
             id: $stateParams.id
         }
     ]
