@@ -11,4 +11,5 @@ angular.module('swapr').controller('UploadCtrl', function ($scope, $stateParams)
         id: $stateParams.id
     };
 
+    $scope.intro = "Upload yer video here, matey! Arrgh...";
 });

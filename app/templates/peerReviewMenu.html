@@ -1,7 +1,10 @@
 <h1 class="title">{{curAssignment.title}}</h1>
 <a class="card">
-    <p>{{rubric}}</p>
-    <button ng-click="hideReviews=false" ng-init="hideReviews=true">Okay, show me the videos</button>
+    <p collapse="isCollapsed" ng-hide="isCollapsed">{{rubric}}</p>
+    <button ng-hide="isCollapsed" ng-click="hideReviews=false;isCollapsed = !isCollapsed" ng-init="hideReviews=true">
+        Okay, show me the videos
+    </button>
+    <button ng-hide="!isCollapsed" ng-click="isCollapsed = !isCollapsed">Show the rubric</button>
 </a>
 
 <a class="card" ng-repeat="review in reviewList" ng-hide="hideReviews" href="#">
