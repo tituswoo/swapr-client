@@ -1,11 +1,13 @@
+@import "bootstrap";
 @import "reset";
-// @import "bootstrap";
+//@import "../bower_components/fitgrd/css/fitgrd.pack.css";
 @import "variables";
 @import "mixins";
 @import "utilities";
-@import "partials/buttons";
+@import "partials/form";
 @import "partials/accordion";
 @import "partials/profile-pic";
+@import "partials/video-responsive";
 @import "partials/menubar";
 @import "partials/sidebar";
 @import "partials/main";

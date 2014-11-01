@@ -1,4 +1,8 @@
 accordion {
+    .panel-group {
+        border: 1px solid $asbestos;
+        border-bottom: none;
+    }
     h4.panel-title {
         background-color: $silver;
         border-bottom: 1px solid darken($silver, 20);
@@ -7,6 +11,7 @@ accordion {
         a.accordion-toggle {
             cursor: pointer;
             display: block;
+            color: black;
         }
     }
     div.panel-collapse {
