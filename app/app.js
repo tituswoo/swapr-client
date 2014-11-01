@@ -57,4 +57,9 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/upload.html',
             controller: 'UploadCtrl'
         })
+        .state('gradeVideo', {
+            url: '/gradeVideo',
+            templateUrl: 'templates/gradeVideo.html',
+            controller: 'GradeVideoCtrl'
+        })
 });

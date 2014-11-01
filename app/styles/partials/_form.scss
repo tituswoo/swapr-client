@@ -1,0 +1,36 @@
+button {
+    color: white;
+    background-color: $turquoise;
+    border-bottom: 3px solid $green-sea;
+    font-size: 13px;
+    padding: $default-padding - 5px;
+    cursor: pointer;
+    transition: 0.1s linear all;
+
+    &:hover {
+        background-color: darken($turquoise, 20);
+    }
+}
+
+// Local mixin:
+@mixin common {
+    border-radius: 0 0 5px 5px;
+    border-color: $silver;
+    padding: 3px;
+    &:focus {
+        border-color: $turquoise;
+    }
+}
+
+input {
+    @include common;
+    padding-bottom: 1px;
+    border-bottom: 2px solid $silver;
+}
+
+textarea {
+    @include common;
+    border-radius: 5px;
+    border: 2px solid $silver;
+    display: block;
+}
