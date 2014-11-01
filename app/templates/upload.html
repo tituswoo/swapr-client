@@ -1,13 +1,12 @@
 <h1 class="title">{{upload.title}}</h1>
 
 <div class="card">{{intro}}</div>
-
-<form method="POST" action="upload" enctype="multipart/form-data" >
-    File:
-    <input type="file" name="file" id="file" /> <br/>
-    Destination:
-    <input type="text" value="/tmp" name="destination"/>
-    </br>
-    <button type="submit" value="Upload" name="upload" id="upload">Submit</button>
+<form>
+    Enter your video URL:
+    <input type="url" name="videoURLString">
 </form>
+
+<youtube-video video-url="videoUrl"></youtube-video>
+
+<button type="submit" value="Upload" name="upload" id="upload">Submit</button>
 
