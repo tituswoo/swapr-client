@@ -2,6 +2,7 @@ accordion {
     .panel-group {
         border: 1px solid $asbestos;
         border-bottom: none;
+        border-radius: 3px;
     }
     h4.panel-title {
         background-color: $silver;
@@ -12,6 +13,9 @@ accordion {
             cursor: pointer;
             display: block;
             color: black;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     div.panel-collapse {
