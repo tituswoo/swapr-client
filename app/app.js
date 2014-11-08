@@ -22,11 +22,6 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/dashboard.html',
             controller: 'DashboardCtrl'
         })
-        .state('assignments', {
-            url: '/assignments',
-            templateUrl: 'templates/assignments.html',
-            controller: 'AssignmentsCtrl'
-        })
         .state('grades', {
             abstract: true,
             template: '<ui-view />',
@@ -52,12 +47,22 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/peerReviewMenu.html',
             controller: 'PeerReviewCtrl'
         })
-        .state('upload', {
+        .state('assignments', {
+            abstract: true,
+            template: '<ui-view />',
+            url: '/assignments'
+        })
+        .state('assignments.assignments', {
+            url: '',
+            templateUrl: 'templates/assignments.html',
+            controller: 'AssignmentsCtrl'
+        })
+        .state('assignments.upload', {
             url: '/upload',
             templateUrl: 'templates/upload.html',
             controller: 'UploadCtrl'
         })
-        .state('gradeVideo', {
+        .state('assignments.gradeVideo', {
             url: '/gradeVideo',
             templateUrl: 'templates/gradeVideo.html',
             controller: 'GradeVideoCtrl'
