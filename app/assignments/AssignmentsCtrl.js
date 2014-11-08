@@ -18,7 +18,7 @@ angular.module('swapr').controller('AssignmentsCtrl', function ($scope, $statePa
             dueTime: '11:59 pm',
             status: 'Incomplete',
             type: 'review',
-            route: 'assignments.peerreviews',
+            route: 'assignments.gradeVideo',
             id: $stateParams.id
         }
     ]

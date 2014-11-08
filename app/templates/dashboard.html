@@ -1,10 +1,14 @@
 <h1 class="title">Dashboard</h1>
 <div class="card">
     <h3 class="title">Assignments</h3>
-    <ul>
-        <li><a ui-sref="assignments.upload">Lab 1 Video Upload</a><div class="pull-right">due in 3 days</div></li>
-        <li><a ui-sref="assignments.gradeVideo">Lab 1 Video Peer Review</a><div class="pull-right">due in 1 week</div></li>
-    </ul>
+    <div ng-controller="AssignmentsCtrl">
+        <ul>
+            <li ng-repeat="assignment in assignments">
+                <a ui-sref="{{assignment.route}}">{{assignment.title}}</a>
+                <div class="pull-right">due in 3 days</div>
+            </li>
+        </ul>
+    </div>
 </div>
 <div class="card">
     <h3 class="title">Grades</h3>
