@@ -3,10 +3,12 @@
 <div class="card">{{intro}}</div>
 <form>
     Enter your video URL:
-    <input type="url" name="videoURLString">
+    <input type="url" name="videoURLString" ng-model="videoUrl">
 </form>
 
-<youtube-video video-url="videoUrl"></youtube-video>
+<div ng-show='videoUrl != ""'>
+    <youtube-video video-url="videoUrl"></youtube-video>
+</div>
 
 <button type="submit" value="Upload" name="upload" id="upload">Submit</button>
 

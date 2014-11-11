@@ -11,8 +11,8 @@ angular.module('swapr').controller('UploadCtrl', function ($scope, $stateParams)
         id: $stateParams.id
     };
 
-    $scope.videoUrl = "https://www.youtube.com/watch?v=0Bmhjf0rKe8";
-    //$scope.videoUrl = "HELLO";
+    $scope.videoUrl = "";
+    //$scope.videoUrl = "https://www.youtube.com/watch?v=0Bmhjf0rKe8";
 
     $scope.intro = "Upload yer video here, matey! Arrgh...";
 });
