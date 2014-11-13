@@ -3,10 +3,14 @@
 <div class="card">{{intro}}</div>
 <form>
     Enter your video URL:
-    <input type="url" name="videoURLString" ng-model="videoUrl">
+    <input type="url" name="videoURLString" ng-model="inputUrl" ng-change="checkUrl()">
 </form>
 
-<div ng-show='videoUrl != ""'>
+<div class="alert alert-danger" role="alert" ng-show="!urlIsValid">
+    Please enter a valid URL.
+</div>
+
+<div ng-show='videoUrl != "" && urlIsValid'>
     <youtube-video video-url="videoUrl"></youtube-video>
 </div>
 
