@@ -16,7 +16,6 @@ angular.module('swapr').controller('UploadCtrl', function ($scope, $stateParams,
     $scope.urlIsValid=true;
 
     $scope.checkUrl = function() {
-        console.log("Checking URL");
         var inputUrlId = "";
         //TODO: urls must currently be prefaced with "http://"
         if ($scope.inputUrl.match(/youtube\.com\/watch\?v=([^\&\?\/]{11})/)) {
@@ -38,7 +37,6 @@ angular.module('swapr').controller('UploadCtrl', function ($scope, $stateParams,
             +"&key=AIzaSyAaTtiCEM1194GMdnfNvA-aWFtaNTf_9UY&part=status").
             success(function(data, status, headers, config) {
                 if(data.items.length < 1) {
-                    //TODO: display an error message to viewer
                     $scope.urlIsValid=false;
                     return;
                 } else if (data.items[0].status.privacyStatus == "public"
