@@ -2,6 +2,7 @@
 <div class="row">
     <div class="col-md-7">
         <h3>YouTube video title here</h3>
+
         <div class="video-responsive">
             <youtube-video video-url="videoUrl"></youtube-video>
         </div>
@@ -9,25 +10,22 @@
     <div class="col-md-5">
         <h3>Grading Criteria</h3>
         <accordion close-others="true">
-            <accordion-group heading="Organizational Structure">
-                This is a test 2.
-                <textarea name="" id="" cols="30" rows="10">Test</textarea>
-            </accordion-group>
-            <accordion-group heading="Content Models">
-                This is a test 2.
-            </accordion-group>
-            <accordion-group heading="Content Prediction Discussion">
-                This is a test 2.
-            </accordion-group>
-            <accordion-group heading="Content Overall">
-                This is a test 2.
-            </accordion-group>
-            <accordion-group heading="Production Delivery">
-                This is a test 2.
+            <accordion-group ng-repeat="item in criteria" heading="{{item.title}}">
+                <p class="section">Rate this section:
+                    <rating class="pull-right" ng-model="item.rating.rate" max="item.rating.max"></rating>
+                    <!--<span class="pull-right" style="margin-right: 5px; font-style: italic; font-weight: bold;">{{item.rating.rate}}</span>-->
+                </p>
+                <p>
+                    <textarea style="width: 100%;">{{item.feedback}}</textarea>
+                </p>
             </accordion-group>
             <accordion-group heading="Review and Submit">
-                <p>This is a test 2.</p>
-                <button type="submit">Submit grade</button>
+                <div ng-repeat="item in criteria" style="margin-bottom: 10px;">
+                    <p>{{item.title}}:
+                        <rating class="pull-right" ng-model="item.rating.rate"></rating>
+                    </p>
+                </div>
+                <button type="submit">Finish grading</button>
             </accordion-group>
         </accordion>
     </div>
