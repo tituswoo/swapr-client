@@ -13,6 +13,10 @@ angular.module('swapr').controller('MainCtrl', function ($scope) {
     };
 });
 
+angular.module('swapr').constant('CONSTANTS', {
+    'BASE_URL': 'http://private-a85d0-swaprapi.apiary-mock.com/'
+});
+
 angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/dashboard');
 

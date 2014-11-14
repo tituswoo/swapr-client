@@ -1,9 +1,7 @@
-angular.module('swapr').controller('GradesDetailsCtrl', function ($scope, $stateParams) {
-    // eventually we want to use $http to get grade object with $stateParams.id.
-    // for now let's do dummy stuff.
+angular.module('swapr').controller('GradesDetailsCtrl', function ($scope, $stateParams, Grades) {
+    // Note; for mock service, it will return the same object regardless of the id you give it.
 
-    $scope.grade = {
-        title: 'Lab 1 Video Calibration',
-        id: $stateParams.id
-    }
+    Grades.getGrade($stateParams.id).success(function(data) {
+        $scope.grade = data;
+    });
 });
