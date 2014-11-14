@@ -13,8 +13,7 @@
 <div class="card">
     <h3 class="title">Grades</h3>
     <ul>
-        <li><a ui-sref="grades.grades">Lab 0 Calibration Training</a><div class="pull-right">100%</div></li>
-        <li><a ui-sref="grades.grades">Lab 0 Peer Review Quiz</a><div class="pull-right">82%</div></li>
+        <li ng-repeat="grade in grades"><a ui-sref="grades.detail({id: grade.id})">{{grade.title}}</a><div class="pull-right">{{grade.grade}}%</div></li>
     </ul>
 </div>
 <div class="card">

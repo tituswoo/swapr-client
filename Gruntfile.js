@@ -19,6 +19,11 @@ module.exports = function(grunt) {
                     cwd: 'app/',
                     src: ['**/*', '!**/*.scss'],
                     dest: 'dist/'
+                }, {
+                    expand: true,
+                    cwd: 'app/bower_components/bootstrap-sass-official/assets/',
+                    src: ['**/*'],
+                    dest: 'dist/'
                 }]
             }
         },
