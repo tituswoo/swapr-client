@@ -1,9 +1,9 @@
 <h1 class="title">{{upload.title}}</h1>
 
 <div class="card">{{intro}}</div>
-<form>
+<form class="section">
     Enter your video URL:
-    <input type="url" name="videoURLString" ng-model="inputUrl" ng-change="checkUrl()">
+    <input type="url" name="videoURLString" ng-model="inputUrl" ng-change="checkUrl()" style="width:43.7%;">
 </form>
 
 <div class="alert alert-danger" role="alert" ng-show="!urlIsValid">
