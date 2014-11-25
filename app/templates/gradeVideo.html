@@ -1,16 +1,16 @@
 <h1 class="title">Grade Video</h1>
 <div class="row">
     <div class="col-md-7">
-        <h3>YouTube video title here</h3>
+        <h3>{{peerReview.video.title}}</h3>
 
         <div class="video-responsive">
-            <youtube-video video-url="videoUrl"></youtube-video>
+            <youtube-video video-url="peerReview.video.url"></youtube-video>
         </div>
     </div>
     <div class="col-md-5">
         <h3>Grading Criteria</h3>
         <accordion close-others="true">
-            <accordion-group ng-repeat="item in criteria" heading="{{item.title}}">
+            <accordion-group ng-repeat="item in peerReview.criteria" heading="{{item.title}}">
                 <p class="section">Rate this section:
                     <rating class="pull-right" ng-model="item.rating.rate" max="item.rating.max"></rating>
                     <!--<span class="pull-right" style="margin-right: 5px; font-style: italic; font-weight: bold;">{{item.rating.rate}}</span>-->
@@ -20,7 +20,7 @@
                 </p>
             </accordion-group>
             <accordion-group heading="Review and Submit">
-                <div ng-repeat="item in criteria" style="margin-bottom: 10px;">
+                <div ng-repeat="item in peerReview.criteria" style="margin-bottom: 10px;">
                     <p>{{item.title}}:
                         <rating class="pull-right" ng-model="item.rating.rate"></rating>
                     </p>
