@@ -12,20 +12,20 @@
         <accordion close-others="true">
             <accordion-group ng-repeat="item in peerReview.criteria" heading="{{item.title}}">
                 <p class="section">Rate this section:
-                    <rating class="pull-right" ng-model="item.rating.rate" max="item.rating.max"></rating>
-                    <!--<span class="pull-right" style="margin-right: 5px; font-style: italic; font-weight: bold;">{{item.rating.rate}}</span>-->
+                    <rating ng-change="save()" class="pull-right" ng-model="item.rating.rate" max="item.rating.max"></rating>
                 </p>
                 <p>
-                    <textarea style="width: 100%;">{{item.feedback}}</textarea>
+                    <textarea ng-change="save()" ng-model="item.feedback" style="width: 100%;">{{item.feedback}}</textarea>
                 </p>
             </accordion-group>
             <accordion-group heading="Review and Submit">
                 <div ng-repeat="item in peerReview.criteria" style="margin-bottom: 10px;">
                     <p>{{item.title}}:
-                        <rating class="pull-right" ng-model="item.rating.rate"></rating>
+                        <rating ng-change="save()" class="pull-right" ng-model="item.rating.rate"></rating>
                     </p>
                 </div>
                 <button type="submit">Finish grading</button>
+                <button ng-click="reset()">Reset</button>
             </accordion-group>
         </accordion>
     </div>

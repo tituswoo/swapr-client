@@ -2,7 +2,11 @@
  * Created by Titus on 9/26/2014.
  */
 
-angular.module('swapr', ['ui.bootstrap', 'ui.router', 'youtube-embed']);
+angular.module('swapr', ['ui.bootstrap', 'ui.router', 'youtube-embed', 'LocalStorageModule']);
+
+angular.module('swapr').config(function(localStorageServiceProvider) {
+    localStorageServiceProvider.setPrefix('swapr');
+});
 
 angular.module('swapr').controller('MainCtrl', function ($scope) {
     $scope.hello = 'hi there!';
