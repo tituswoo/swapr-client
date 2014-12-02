@@ -1,7 +1,7 @@
 /**
  * Created by Vaughan on 10/24/2014.
  */
-angular.module('swapr').controller('AssignmentsCtrl', function ($scope, $stateParams) {
+angular.module('swapr').controller('AssignmentsCtrl', ['$scope', '$stateParams',function ($scope, $stateParams) {
     $scope.assignments = [
         {
             title: 'Lab 1 Video Upload',
@@ -22,4 +22,4 @@ angular.module('swapr').controller('AssignmentsCtrl', function ($scope, $statePa
             id: $stateParams.id
         }
     ]
-});
+}]);

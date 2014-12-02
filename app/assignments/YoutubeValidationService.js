@@ -2,7 +2,7 @@
  * Created by Vaughan on 11/14/2014.
  */
 
-angular.module('swapr').factory('YoutubeValidation', function ($http) {
+angular.module('swapr').factory('YoutubeValidation', ['$http', function ($http) {
     var inputUrl = "";
     var videoUrl = "";
     var urlIsValid = true;
@@ -46,4 +46,4 @@ angular.module('swapr').factory('YoutubeValidation', function ($http) {
     return {
         checkUrl: checkUrl
     };
-});
+}]);

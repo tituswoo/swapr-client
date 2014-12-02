@@ -1,4 +1,4 @@
-angular.module('swapr').controller('SidebarCtrl', function ($scope) {
+angular.module('swapr').controller('SidebarCtrl',['$scope', function ($scope) {
 
-});
+}]);
 

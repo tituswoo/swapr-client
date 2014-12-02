@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('swapr').factory('Profile', function (CONSTANTS, $http) {
+angular.module('swapr').factory('Profile', ['CONSTANTS', '$http',function (CONSTANTS, $http) {
     var getProfile = function () {
         return $http.get(CONSTANTS.BASE_URL + 'profile');
     };
@@ -8,4 +8,4 @@ angular.module('swapr').factory('Profile', function (CONSTANTS, $http) {
     return {
         getProfile: getProfile
     };
-});
+}]);

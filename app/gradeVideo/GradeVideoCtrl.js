@@ -2,7 +2,8 @@
  * Created by tituswoo on 10/31/14.
  */
 
-angular.module('swapr').controller('GradeVideoCtrl', function ($scope, localStorageService) {
+angular.module('swapr').controller('GradeVideoCtrl', ['$scope', 'localStorageService',
+    function ($scope, localStorageService) {
     var original = {};
 
     (function () {
@@ -75,4 +76,4 @@ angular.module('swapr').controller('GradeVideoCtrl', function ($scope, localStor
     $scope.reset = function () {
         angular.copy(original, $scope.peerReview);
     };
-});
+}]);
