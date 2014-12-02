@@ -28,10 +28,12 @@ angular.module('swapr').factory('YoutubeValidation', function ($http) {
         $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + inputUrlId
         + "&key=AIzaSyAaTtiCEM1194GMdnfNvA-aWFtaNTf_9UY&part=status").
             success(function (data, status, headers, config) {
+                console.log(data);
                 if (data.items.length < 1) {
                     urlIsValid = false;
                 } else if (data.items[0].status.privacyStatus == "public"
                     || data.items[0].status.privacyStatus == "unlisted") {
+                    //data.uploadStatus will either be "uploaded" or "processed"
                     urlIsValid = true;
                 }
                 callback(urlIsValid);
