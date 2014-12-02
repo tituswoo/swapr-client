@@ -1,7 +1,7 @@
 /**
  * Created by Vaughan on 10/24/2014.
  */
-angular.module('swapr').controller('PeerReviewCtrl', function ($scope, $stateParams) {
+angular.module('swapr').controller('PeerReviewCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
     $scope.assignment = {
         title: 'Lab 1 Video Upload',
         dueDate: '8/31/14',
@@ -28,4 +28,4 @@ angular.module('swapr').controller('PeerReviewCtrl', function ($scope, $statePar
             percentage: "0"
         }
     ];
-});
+}]);

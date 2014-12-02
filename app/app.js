@@ -4,24 +4,24 @@
 
 angular.module('swapr', ['ui.bootstrap', 'ui.router', 'youtube-embed', 'LocalStorageModule']);
 
-angular.module('swapr').config(function(localStorageServiceProvider) {
+angular.module('swapr').config(['localStorageServiceProvider', function(localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('swapr');
-});
+}]);
 
-angular.module('swapr').controller('MainCtrl', function ($scope) {
+angular.module('swapr').controller('MainCtrl', ['$scope', function ($scope) {
     $scope.hello = 'hi there!';
     $scope.menuVisible = false;
 
     $scope.toggleMenu = function () {
         $scope.menuVisible = !$scope.menuVisible;
     };
-});
+}]);
 
 angular.module('swapr').constant('CONSTANTS', {
     'BASE_URL': 'http://private-a85d0-swaprapi.apiary-mock.com/'
 });
 
-angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
+angular.module('swapr').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
@@ -75,4 +75,4 @@ angular.module('swapr').config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/gradeVideo.html',
             controller: 'GradeVideoCtrl'
         })
-});
+}]);

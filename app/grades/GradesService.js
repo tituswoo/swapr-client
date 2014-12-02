@@ -1,4 +1,4 @@
-angular.module('swapr').factory('Grades', function ($http, CONSTANTS) {
+angular.module('swapr').factory('Grades', ['$http', 'CONSTANTS', function ($http, CONSTANTS) {
     var getGrades = function () {
         return $http.get(CONSTANTS.BASE_URL + 'grades');
     };
@@ -11,4 +11,4 @@ angular.module('swapr').factory('Grades', function ($http, CONSTANTS) {
         getGrades: getGrades,
         getGrade: getGrade
     };
-});
+}]);

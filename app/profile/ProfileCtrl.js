@@ -1,5 +1,5 @@
-angular.module('swapr').controller('ProfileCtrl', function($scope, Profile) {
+angular.module('swapr').controller('ProfileCtrl', ['$scope', 'Profile', function($scope, Profile) {
     Profile.getProfile().success(function(data) {
         $scope.profile = data;
     });
-});
+}]);
