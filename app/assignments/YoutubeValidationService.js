@@ -6,6 +6,7 @@ angular.module('swapr').factory('YoutubeValidation', ['$http', function ($http) 
     var inputUrl = "";
     var videoUrl = "";
     var urlIsValid = true;
+    var urlIsUploading = true;
 
     var checkUrl = function (inputUrl, callback) {
         var inputUrlId = "";
@@ -34,9 +35,12 @@ angular.module('swapr').factory('YoutubeValidation', ['$http', function ($http) 
                 } else if (data.items[0].status.privacyStatus == "public"
                     || data.items[0].status.privacyStatus == "unlisted") {
                     //data.uploadStatus will either be "uploaded" or "processed"
+                    if (data.items[0].status.uploadStatus == "uploaded") {
+                        urlIsUploading = true;
+                    }
                     urlIsValid = true;
                 }
-                callback(urlIsValid);
+                callback(urlIsValid, urlIsUploading);
             }).
             error(function (data, status, headers, config) {
                 console.log("Error loading video url");
