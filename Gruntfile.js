@@ -62,5 +62,5 @@ module.exports = function(grunt) {
     // For now just copy everything; later we will want to do other stuff.
     grunt.registerTask('dev', ['clean:dev', 'copy:dev', 'sass:dev']);
     grunt.registerTask('serve', ['watch:dev']);
-    grunt.registerTask('install',['bower:install','npm-install']);
+    grunt.registerTask('install',['npm-install','bower:install']);
 };
