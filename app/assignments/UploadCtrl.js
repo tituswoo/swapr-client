@@ -17,8 +17,9 @@ angular.module('swapr').controller('UploadCtrl',['$scope', '$stateParams', '$htt
     $scope.urlIsValid = true;
 
     $scope.checkUrl = function () {
-        YoutubeValidation.checkUrl($scope.inputUrl, function (urlIsValid) {
+        YoutubeValidation.checkUrl($scope.inputUrl, function (urlIsValid, urlIsUploading) {
             $scope.urlIsValid = urlIsValid;
+            $scope.urlIsUploading = urlIsUploading;
             if (urlIsValid) {
                 $scope.videoUrl = $scope.inputUrl;
             }
