@@ -20,9 +20,10 @@
             </accordion-group>
             <accordion-group heading="Review and Submit">
                 <div ng-repeat="item in peerReview.criteria" style="margin-bottom: 10px;">
-                    <p>{{item.title}}:
+                    <p>{{item.title}}
                         <rating ng-change="save()" class="pull-right" ng-model="item.rating.rate"></rating>
                     </p>
+                    <p><i style="color:#b6b6b6">{{item.feedback}}</i></p>
                 </div>
                 <button type="submit">Finish grading</button>
                 <button ng-click="reset()">Reset</button>

@@ -15,7 +15,9 @@
 </div>
 
 <div ng-show='videoUrl != "" && urlIsValid'>
-    <youtube-video video-url="videoUrl"></youtube-video>
+    <div class="video-responsive">
+        <youtube-video video-url="videoUrl"></youtube-video>
+    </div>
 </div>
 
 <button type="submit" value="Upload" name="upload" id="upload">Submit</button>
