@@ -23,7 +23,7 @@
                     <p>{{item.title}}
                         <rating ng-change="save()" class="pull-right" ng-model="item.rating.rate"></rating>
                     </p>
-                    <p><b>Feedback: </b>{{item.feedback}}</p>
+                    <p><i style="color:#b6b6b6">{{item.feedback}}</i></p>
                 </div>
                 <button type="submit">Finish grading</button>
                 <button ng-click="reset()">Reset</button>
