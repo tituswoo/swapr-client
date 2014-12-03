@@ -6,7 +6,7 @@ angular.module('swapr').factory('YoutubeValidation', ['$http', function ($http) 
     var inputUrl = "";
     var videoUrl = "";
     var urlIsValid = true;
-    var urlIsUploading = true;
+    var urlIsUploading = false;
 
     var checkUrl = function (inputUrl, callback) {
         var inputUrlId = "";
