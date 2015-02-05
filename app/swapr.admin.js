@@ -1,33 +1,24 @@
 /**
- * Created by Titus on 9/26/2014.
+ * Created by tituswoo on 2/5/15.
  */
 
-angular.module('swapr', ['ui.bootstrap', 'ui.router', 'youtube-embed', 'LocalStorageModule']);
+angular.module('swapr.admin', ['swapr', 'ui.bootstrap', 'ui.router', 'LocalStorageModule']);
 
-angular.module('swapr').config(['localStorageServiceProvider', function(localStorageServiceProvider) {
-    localStorageServiceProvider.setPrefix('swapr');
+angular.module('swapr.admin').config(['localStorageServiceProvider', function(localStorageServiceProvider) {
+    localStorageServiceProvider.setPrefix('swapr.admin');
 }]);
 
-angular.module('swapr').controller('MainCtrl', ['$scope', function ($scope) {
-    $scope.hello = 'hi there!';
-    $scope.menuVisible = false;
-
-    $scope.toggleMenu = function () {
-        $scope.menuVisible = !$scope.menuVisible;
-    };
+angular.module('swapr.admin').controller('MainCtrl', ['$scope', function($scope) {
+    $scope.hello = "this is another hello message";
 }]);
 
-angular.module('swapr').constant('CONSTANTS', {
-    'BASE_URL': 'http://private-a85d0-swaprapi.apiary-mock.com/'
-});
-
-angular.module('swapr').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
         .state('dashboard', {
             url: '/dashboard',
-            templateUrl: 'templates/dashboard.html',
+            templateUrl: 'templates/admin/dashboard.html',
             controller: 'DashboardCtrl'
         })
         .state('grades', {
