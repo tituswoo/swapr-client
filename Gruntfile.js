@@ -41,7 +41,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        bower: {
+        bower: {    //DONE
             install: {
                 //set verbose
                 options: {
