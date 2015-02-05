@@ -13,12 +13,12 @@ angular.module('swapr.admin').controller('MainCtrl', ['$scope', function($scope)
 }]);
 
 angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
-        .state('dashboard', {
-            url: '/dashboard',
-            templateUrl: 'templates/admin/dashboard.html',
+        .state('home', {
+            url: '/home',
+            templateUrl: 'templates/admin/home.html',
             controller: 'DashboardCtrl'
         })
         .state('grades', {
@@ -41,7 +41,17 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
             templateUrl: 'templates/profile.html',
             controller: 'ProfileCtrl'
         })
-        .state('assignments', {
+        .state('classes', {
+            abstract: true,
+            template: '<ui-view />',
+            url: '/classes'
+        })
+        .state('classes.class', {
+            url: '/class/:id',
+            templateUrl: 'templates/admin/class.html',
+            controller: 'ClassCtrl'
+        })
+        .state('classes.class.assignments', {
             abstract: true,
             template: '<ui-view />',
             url: '/assignments'
@@ -50,20 +60,5 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
             url: '',
             templateUrl: 'templates/assignments.html',
             controller: 'AssignmentsCtrl'
-        })
-        .state('assignments.upload', {
-            url: '/upload',
-            templateUrl: 'templates/upload.html',
-            controller: 'UploadCtrl'
-        })
-        .state('assignments.peerreviews', {
-            url: '/review',
-            templateUrl: 'templates/peerReviewMenu.html',
-            controller: 'PeerReviewCtrl'
-        })
-        .state('assignments.gradeVideo', {
-            url: '/gradeVideo',
-            templateUrl: 'templates/gradeVideo.html',
-            controller: 'GradeVideoCtrl'
-        })
+        });
 }]);
