@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        copy: {
+        copy: {     //DONE
             dev: {
                 files: [{
                     expand: true,
@@ -27,12 +27,12 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        clean: {
+        clean: {            //DONE
             dev: {
                 src: ['dist/**']
             }
         },
-        watch: {
+        watch: {            //Buggy: only watches once
             dev: {
                 files: ['app/**'],
                 tasks: ['copy:dev','sass:dev'],
