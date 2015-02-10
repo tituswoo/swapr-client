@@ -216,6 +216,7 @@ Get assignment meta-data for a specific course
 # Group Courses
 All operations that have to do with getting grade information.
 
+## Courses [/courses]
 ### List ALL Courses [GET]
 
 + Response 200 (application/json)
@@ -262,10 +263,20 @@ All operations that have to do with getting grade information.
                 ]
             }
         ]
+        
+## Create Course [POST]
++ Request (application/x-www-form-urlencoded)
 
+    + Body
+    
+            {
+                'active': True,
+                'name': 'Apiary for Dummies 101',
+                'semester': 'spring',
+                'year': 2015
+            }
 
-# Group createSubmissionAssignment
-create a submission assignment
++ Response 201
 
 # Group Profile
 Profile related resoures of the **SWAPR API**. Not in rest framework at the moment...
