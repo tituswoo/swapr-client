@@ -82,6 +82,46 @@ A single Assignment object with all its details.
             }
         }
 
+## Create Submission Assignment [/assignments/submission/]
+In the final you should be able to post to just /assignments/, I will update this once I figure out apiary
+
+## Make Submission Assignment [POST]
++ Request (application/x-www-form-urlencoded)
+
+    + Body
+    
+            { 
+                "type" : "submission"
+                "description" : "Description",
+                "due_date": "A DateTime",
+                "assigner": "instructor (might be done through auth in future)",
+            }
+
++ Response 201
+
+## Create Evaluation Assignment [/assignments/evaluation]
+In the final you should be able to post to just /assignments/, I will update this once I figure out apiary
+## Make Evaluation Assignment [POST]
++ Request (application/x-www-form-urlencoded)
+
+    + Body
+    
+            {
+                "type" : "evaluation"
+                'assigner': 'chris wang setupscript (might be done through auth in future)',
+                  'description': 'assignment number 4 for courseNumber 4',
+                  'due_date': '2014-01-05T00:00:00-04:56',
+                  'items': [{'description': 'item #1 for assignment number: 4 for class number 4',
+                             'max_value': 5},
+                            {'description': 'item #2 for assignment number: 4 for class number 4',
+                             'max_value': 5},
+                            {'description': 'item #3 for assignment number: 4 for class number 4',
+                             'max_value': 5},
+                            {'description': 'item #4 for assignment number: 4 for class number 4',
+                             'max_value': 5}]
+            }
++ Response 201
+
 # Group getAssignments
 get assignment meta data
 
@@ -223,6 +263,9 @@ All operations that have to do with getting grade information.
             }
         ]
 
+
+# Group createSubmissionAssignment
+create a submission assignment
 
 # Group Profile
 Profile related resoures of the **SWAPR API**. Not in rest framework at the moment...
