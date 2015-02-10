@@ -2,8 +2,53 @@ FORMAT: 1A
 
 # SWAPR API
 
-API for the MOOC SWAPR application. This is a super rough draft that's missing a
-lot at the moment.
+API for the MOOC SWAPR application. This is a somewhat rough draft that's missing a
+some stuff at the moment.
+
+
+# Group Student Creation
+Creating students, will be deprecated after GT authenticaiton provided
+
+## Student Creation Endpoint [/users/]
+
+## Create Student [POST]
++ Request (application/json)
+
+    + Body
+    
+            {'username': 'student0', 'password': 'student0'}
+
++ Response 201 (application/json)
+
+    + Body 
+    
+            {
+                "id": 5,
+                "username": "student6"
+            }
+
+# Group Auth Token
+Get an Authorization Token, will be replaced by GT auth soon...
+
+## Token [/api-token-auth/]
+
+## Get Token [POST]
++ Request (application/json)
+
+    + Body
+    
+            {
+                'password': 'student0',
+                'username': 'student0'
+            }
+
++ Response 201 (application/json)
+
+    + Body
+    
+            {
+                "token": "dfbd47cd9c5a499fd8d987b44ee064cb4e5bbfb2"
+            }
 
 # Group Grades
 Deprecated, look in assignments
