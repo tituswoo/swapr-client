@@ -6,44 +6,16 @@ API for the MOOC SWAPR application. This is a super rough draft that's missing a
 lot at the moment.
 
 # Group Grades
-All operations that have to do with getting grade information.
-
-## Grades [/grades]
-A collection of all grades for a particular student.
-
-### List all Grades [GET]
-+ Response 200 (application/json)
-
-        [{
-            "id": "398572398572398657",
-            "title": "Lab 1 Assignment",
-            "grade": "89"
-        }, {
-            "id": "398579528572398930",
-            "title": "Lab 2 Assignment",
-            "grade": "99"
-        }]
+Deprecated, look in assignments
 
 ## Grade [/grades/{id}]
-A single Grade object with all of its details.
-
-+ Parameters
-    + id (required, string) ... String `id` of the grade to retrieve.
-
-### Retrieve a Grade [GET]
-+ Response 200 (application/json)
-
-        {
-            "id": "398572398572398657",
-            "title": "Lab 1 Assignment",
-            "grade": "89"
-        }
+Deprecated, look in assignments
 
 # Group Assignments
 ## Assignments [/assignments]
 Assignments related resources of the **SWAPR API**
 
-### List all Assignments [GET]
+### List ALL Assignments, no grades [GET]
 + Response 200 (application/json)
 
         [
@@ -71,14 +43,189 @@ A single Assignment object with all its details.
 + Response 200 (application/json)
 
         {
-            "title": "Lab 1 Video Upload",
-            "due": "2014-10-24T21:13:56.703Z",
-            "status": "complete",
-            "id": "1110471398572098651"
+            "id": 17, 
+            "assigner": "chris wang setupscript", 
+            "description": "assignment number 1 for courseNumber 1", 
+            "type": "evaluation", 
+            "course": 1, 
+            "due_date": "2014-01-02T04:56:00Z", 
+            "date_posted": "2015-02-10T05:53:17.104Z", 
+            "items": [
+                {
+                    "id": 1, 
+                    "question": "item #1 for assignment number: 1 for class number 1", 
+                    "max_value": 5, 
+                    "assignment": 17
+                }, 
+                {
+                    "id": 2, 
+                    "question": "item #2 for assignment number: 1 for class number 1", 
+                    "max_value": 5, 
+                    "assignment": 17
+                }, 
+                {
+                    "id": 3, 
+                    "question": "item #3 for assignment number: 1 for class number 1", 
+                    "max_value": 5, 
+                    "assignment": 17
+                }, 
+                {
+                    "id": 4, 
+                    "question": "item #4 for assignment number: 1 for class number 1", 
+                    "max_value": 5, 
+                    "assignment": 17
+                }
+            ], 
+            "grade": {
+                "score": 1, 
+                "max_score": 9999999999
+            }
         }
 
+# Group getAssignments
+get assignment meta data
+
+## GetAssignment [/getAssignments/{course_id}]
+Get assignment meta-data for a specific course
+
++ Parameters
+    + id (required, string) ... String course_id of the course's assignments requested
+
+### retrieve assignment metadata for a course [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 1 for courseNumber 1", 
+                "type": "submission", 
+                "course": 1, 
+                "due_date": "2014-01-02T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z", 
+                "grade": {
+                    "score": 50, 
+                    "max_score": 100
+                }
+            }, 
+            {
+                "id": 2, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 2 for courseNumber 1", 
+                "type": "submission", 
+                "course": 1, 
+                "due_date": "2014-01-03T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z"
+            }, 
+            {
+                "id": 3, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 3 for courseNumber 1", 
+                "type": "submission", 
+                "course": 1, 
+                "due_date": "2014-01-04T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z"
+            }, 
+            {
+                "id": 4, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 4 for courseNumber 1", 
+                "type": "submission", 
+                "course": 1, 
+                "due_date": "2014-01-05T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z"
+            }, 
+            {
+                "id": 17, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 1 for courseNumber 1", 
+                "type": "evaluation", 
+                "course": 1, 
+                "due_date": "2014-01-02T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z"
+            }, 
+            {
+                "id": 18, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 2 for courseNumber 1", 
+                "type": "evaluation", 
+                "course": 1, 
+                "due_date": "2014-01-03T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z"
+            }, 
+            {
+                "id": 19, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 3 for courseNumber 1", 
+                "type": "evaluation", 
+                "course": 1, 
+                "due_date": "2014-01-04T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z"
+            }, 
+            {
+                "id": 20, 
+                "assigner": "chris wang setupscript", 
+                "description": "assignment number 4 for courseNumber 1", 
+                "type": "evaluation", 
+                "course": 1, 
+                "due_date": "2014-01-05T04:56:00Z", 
+                "date_posted": "2015-02-10T05:53:17.104Z"
+            }
+        ]
+
+# Group Courses
+All operations that have to do with getting grade information.
+
+### List ALL Courses [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1, 
+                "name": "course0", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    1, 2
+                ]
+            }, 
+            {
+                "id": 2, 
+                "name": "course1", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    2, 3
+                ]
+            }, 
+            {
+                "id": 3, 
+                "name": "course2", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    3
+                ]
+            }, 
+            {
+                "id": 4, 
+                "name": "course3", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    4
+                ]
+            }
+        ]
+
+
 # Group Profile
-Profile related resoures of the **SWAPR API**.
+Profile related resoures of the **SWAPR API**. Not in rest framework at the moment...
 
 ## Profile [/profile]
 A profile object.
@@ -95,7 +242,7 @@ A profile object.
         }
 
 ## Profile [/profile/{id}]
-A Profile object.
+A Profile object. Not implemented in rest framework
 
 ### Retrieve a Profile [GET]
 + Response 200 (application/json)
