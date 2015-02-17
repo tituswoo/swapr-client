@@ -57,6 +57,11 @@ angular.module('swapr.student').config(['$stateProvider', '$urlRouterProvider', 
             templateUrl: 'templates/student/assignments.html',
             controller: 'AssignmentsCtrl'
         })
+        .state('assignments.assignment', {
+            url: '/assignment/:id',
+            templateUrl: 'templates/student/assignment.html',
+            controller: 'AssignmentCtrl'
+        })
         .state('assignments.upload', {
             url: '/upload',
             templateUrl: 'templates/upload.html',
