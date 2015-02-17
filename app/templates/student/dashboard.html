@@ -4,8 +4,8 @@
     <div ng-controller="AssignmentsCtrl">
         <ul>
             <li ng-repeat="assignment in assignments">
-                <a ui-sref="{{assignment.route}}">{{assignment.title}}</a>
-                <div class="pull-right">due in 3 days</div>
+                <a ui-sref="assignments.assignment({id: assignment.id})">{{assignment.title}}</a>
+                <div class="pull-right">due {{fromNow(assignment.due)}}</div>
             </li>
         </ul>
     </div>
@@ -13,7 +13,7 @@
 <div class="card">
     <h3 class="title">Grades</h3>
     <ul>
-        <li ng-repeat="grade in grades"><a ui-sref="grades.detail({id: grade.id})">{{grade.title}}</a><div class="pull-right">{{grade.grade}}%</div></li>
+        <li ng-repeat="grade in grades"><a ui-sref="grades.detail({id: grade.id})">{{grade.title}}</a><div class="pull-right">na%</div></li>
     </ul>
 </div>
 <div class="card">

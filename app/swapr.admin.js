@@ -41,24 +41,24 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
             templateUrl: 'templates/profile.html',
             controller: 'ProfileCtrl'
         })
-        .state('classes', {
+        .state('courses', {
             abstract: true,
             template: '<ui-view />',
-            url: '/classes'
+            url: '/courses'
         })
-        .state('classes.class', {
-            url: '/class/:id',
-            templateUrl: 'templates/admin/class.html',
-            controller: 'ClassCtrl'
+        .state('courses.course', {
+            url: '/course/:id',
+            templateUrl: 'templates/admin/course.html',
+            controller: 'CourseCtrl'
         })
-        .state('classes.class.assignments', {
+        .state('courses.course.assignments', {
             abstract: true,
             template: '<ui-view />',
-            url: '/assignments'
+            url: '/courses'
         })
-        .state('assignments.assignments', {
+        .state('courses.assignments', {
             url: '',
-            templateUrl: 'templates/assignments.html',
+            templateUrl: 'templates/student/assignments.html',
             controller: 'AssignmentsCtrl'
         });
 }]);
