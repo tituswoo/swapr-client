@@ -64,18 +64,25 @@ Assignments related resources of the **SWAPR API**
 + Response 200 (application/json)
 
         [
-            {
-                "title": "Lab 1 Video Upload",
-                "due": "2014-10-24T21:13:56.703Z",
-                "status": "complete",
-                "id": "1110471398572098651"
-            },
-            {
-                "title": "Lab 2 Video Upload",
-                "due": "2014-10-26T05:13:00.703Z",
-                "status": "incomplete",
-                "id": "1752945601572987520"
-            }
+            [
+                {
+                    "id": 1, 
+                    "assigner": "chris wang setupscript", 
+                    "description": "assignment number 1 for courseNumber 1", 
+                    "type": "submission", 
+                    "course": 1, 
+                    "due_date": "2014-01-02T04:56:00Z", 
+                    "date_posted": "2015-02-10T05:53:17.104Z"
+                }, 
+                {
+                    "id": 2, 
+                    "assigner": "chris wang setupscript", 
+                    "description": "assignment number 2 for courseNumber 1", 
+                    "type": "submission", 
+                    "course": 1, 
+                    "due_date": "2014-01-03T04:56:00Z", 
+                    "date_posted": "2015-02-10T05:53:17.104Z"
+                }
         ]
 
 ## Assignment [/assignments/{id}]
