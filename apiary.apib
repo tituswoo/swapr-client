@@ -330,6 +330,28 @@ All operations that have to do with getting grade information.
 
 + Response 201
 
+        
+## Course [/courses/{id}]
+A single course
+
++ Parameters
+    + id (required, string) ... String `id` of the assignment to retrieve.
+
+### Retrieve a Course [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1, 
+            "name": "course0", 
+            "active": true, 
+            "year": 2015, 
+            "semester": "spring", 
+            "students": [
+                1, 5, 6, 8, 2
+            ]
+        }
+
 # Group Profile
 Profile related resoures of the **SWAPR API**. Not in rest framework at the moment...
 
