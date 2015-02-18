@@ -1,4 +1,6 @@
-<h1 class="title">Classes</h1>
-<ul ng-controller="ClassesCtrl">
-    <li ng-repeat="class in classes"><a ui-sref="classes.class({id: class.id})" class="button">{{ class.name }}</a></li>
+<h1 class="title">Courses</h1>
+<ul ng-controller="CoursesCtrl">
+    <li ng-repeat="course in courses">
+        <a ui-sref="courses.course({id: course.id})" class="button">{{ course.name }}</a>
+    </li>
 </ul>

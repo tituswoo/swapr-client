@@ -1,0 +1,6 @@
+<h1 class="title">Assignments</h1>
+<a class="card" ng-repeat="assignment in assignments" ui-sref="assignments.assignment({id: assignment.id})">
+    <div class="status">{{assignment.status}}</div> <!-- @todo: The status doesn't exist on Apiary yet. Try to get it in.-->
+    <h3>{{assignment.description}}</h3>
+    <p>Due on {{friendlyDate(assignment.due_date)}} ({{fromNow(assignment.due_date)}})</p>
+</a>
