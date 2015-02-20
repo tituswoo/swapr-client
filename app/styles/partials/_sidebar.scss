@@ -10,6 +10,10 @@
   border-right: 2px solid darken($emerald, 15);
   background-color: $emerald;
 
+  li {
+    list-style: none;
+  }
+
   h1.title {
     @include container-header(darken($emerald, 10));
     color: white;
