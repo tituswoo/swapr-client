@@ -54,7 +54,7 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
         .state('courses.course.assignments', {
             abstract: true,
             template: '<ui-view />',
-            url: '/courses'
+            url: ''
         })
         .state('courses.assignments', {
             url: '',
@@ -62,8 +62,7 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
             controller: 'AssignmentsCtrl'
         })
         .state('courses.course.assignments.peerreview', {
-            url: '/course/:id/assignments/peerreview/:assignmentId',
-            templateUrl: 'templates/admin/peerReview.html',
-            controller: 'AssignmentsCtrl'
+            url: '/assignments/peerreview/:assignmentId',
+            templateUrl: 'templates/admin/peerReview.html'
         });
 }]);
