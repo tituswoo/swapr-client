@@ -2,7 +2,14 @@
 <tabset>
     <tab heading="Assignments">
         <ul>
-            <li ng-repeat="a in assignments"><a>{{a.description}}</a></li>
+            <div ng-repeat="a in assignments">
+                <div ng-if="a.type == 'evaluation' ">
+                    <li><a ui-sref="courses.course.assignments.peerreview({assignmentId: a.id})" class="button">{{a.description}}:{{a.type}}</a></li>
+                </div>
+                <div ng-if="a.type != 'evaluation' ">
+                    <li><a>{{a.description}}:{{a.type}}</a></li>
+                </div>
+            </div>
         </ul>
     </tab>
     <tab heading="Students">
