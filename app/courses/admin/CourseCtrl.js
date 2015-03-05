@@ -11,4 +11,16 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
             });
         }
     );
+    $scope.editAssignment = function(a){
+        console.log(a);
+        $scope.changeView(a);
+    };
+
+    $scope.curView = '';
+    $scope.changeView = function(a) {
+      if (a.type === 'evaluation') {
+          $scope.curView = 'peerReview@courses.course';
+          console.log($scope.curView);
+      }
+    };
 }]);

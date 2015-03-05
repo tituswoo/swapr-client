@@ -1,0 +1,20 @@
+<tabset>
+    <tab heading="Assignments">
+        <ul>
+            <ul>
+                <li ng-repeat="a in assignments"><a ng-click="editAssignment(a)">{{a.description}}:{{a.type}}</a></li>
+            </ul>
+        </ul>
+    </tab>
+    <tab heading="Students">
+        <p>A list of all students in the class will go in here.</p>
+    </tab>
+    <tab heading="Details">
+        <p>Name: {{course.name}}</p>
+        <p>Active: {{course.active}}</p>
+        <p>Year: {{course.year}}</p>
+        <p>Semester: {{course.semester}}</p>
+        <button>Save changes</button>
+        <button>Cancel</button>
+    </tab>
+</tabset>

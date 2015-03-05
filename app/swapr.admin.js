@@ -48,21 +48,22 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
         })
         .state('courses.course', {
             url: '/course/:id',
-            templateUrl: 'templates/admin/course.html',
-            controller: 'CourseCtrl'
-        })
-        .state('courses.course.assignments', {
-            abstract: true,
-            template: '<ui-view />',
-            url: ''
+            views: {
+                '':{
+                    templateUrl: 'templates/admin/course/course.html',
+                    controller: 'CourseCtrl'
+                },
+                'tabView@courses.course':{
+                    templateUrl: 'templates/admin/course/courseTabs.html'
+                },
+                'peerReview@courses.course': {
+                    templateUrl:'templates/admin/course/peerReview.html'
+                }
+            }
         })
         .state('courses.assignments', {
             url: '',
             templateUrl: 'templates/student/assignments.html',
             controller: 'AssignmentsCtrl'
-        })
-        .state('courses.course.assignments.peerreview', {
-            url: '/assignments/peerreview/:assignmentId',
-            templateUrl: 'templates/admin/peerReview.html'
         });
 }]);
