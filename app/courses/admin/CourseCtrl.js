@@ -16,7 +16,7 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
         $scope.changeView(a);
     };
 
-    $scope.curView = '';
+    $scope.curView = 'tabView@courses.course';
     $scope.changeView = function(a) {
       if (a.type === 'evaluation') {
           $scope.curView = 'peerReview@courses.course';
