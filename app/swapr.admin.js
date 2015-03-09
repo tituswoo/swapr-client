@@ -57,7 +57,8 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
                     templateUrl: 'templates/admin/course/courseTabs.html'
                 },
                 'peerReview@courses.course': {
-                    templateUrl:'templates/admin/course/peerReview.html'
+                    templateUrl:'templates/admin/course/peerReview.html',
+                    controller: 'PeerReviewCtrl'
                 }
             }
         })

@@ -2,7 +2,7 @@
  * Created by tituswoo on 2/16/15.
  */
 
-angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams', '$state', 'Courses', 'Assignments', function ($scope, $stateParams, $state, Courses, Assignments) {
+angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams', 'Courses', 'Assignments', function ($scope, $stateParams, Courses, Assignments) {
     Courses.getCourse($stateParams.id).success(function (course) {
         $scope.course = course;
     }).then(function(res) {
@@ -20,8 +20,6 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
     $scope.changeView = function(a) {
       if (a.type === 'evaluation') {
           $scope.curView = 'peerReview@courses.course';
-          console.log($scope.curView);
-          //$state.reload();
       }
     };
 }]);
