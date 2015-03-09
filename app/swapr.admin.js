@@ -48,13 +48,19 @@ angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', fu
         })
         .state('courses.course', {
             url: '/course/:id',
-            templateUrl: 'templates/admin/course.html',
-            controller: 'CourseCtrl'
-        })
-        .state('courses.course.assignments', {
-            abstract: true,
-            template: '<ui-view />',
-            url: '/courses'
+            views: {
+                '':{
+                    templateUrl: 'templates/admin/course/course.html',
+                    controller: 'CourseCtrl'
+                },
+                'tabView@courses.course':{
+                    templateUrl: 'templates/admin/course/courseTabs.html'
+                },
+                'peerReview@courses.course': {
+                    templateUrl:'templates/admin/course/peerReview.html',
+                    controller: 'PeerReviewCtrl'
+                }
+            }
         })
         .state('courses.assignments', {
             url: '',

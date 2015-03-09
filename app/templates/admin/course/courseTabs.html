@@ -1,8 +1,9 @@
-<h1 class="title">{{ course.name }}</h1>
 <tabset>
     <tab heading="Assignments">
         <ul>
-            <li ng-repeat="a in assignments"><a>{{a.description}}</a></li>
+            <ul>
+                <li ng-repeat="a in assignments"><a ng-click="editAssignment(a)">{{a.description}}:{{a.type}}</a></li>
+            </ul>
         </ul>
     </tab>
     <tab heading="Students">
