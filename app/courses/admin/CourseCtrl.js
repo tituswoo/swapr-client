@@ -22,4 +22,7 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
           $scope.curView = 'peerReview@courses.course';
       }
     };
+    $scope.parentControllerTest = function() {
+        alert("Parent controller works");
+    };
 }]);
