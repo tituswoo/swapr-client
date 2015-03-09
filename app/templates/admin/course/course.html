@@ -1,2 +1,3 @@
 <h1 class="title">{{ course.name }}</h1>
-<div ui-view={{curView}}></div>
+<div ng-show="curView == 'tabView@courses.course'" ui-view='tabView@courses.course'></div>
+<div ng-show="curView == 'peerReview@courses.course'" ui-view='peerReview@courses.course'></div>
