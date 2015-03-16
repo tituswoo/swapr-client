@@ -2,33 +2,11 @@ FORMAT: 1A
 
 # SWAPR API
 
-API for the MOOC SWAPR application. This is a somewhat rough draft that's missing a
-some stuff at the moment.
+API for the MOOC SWAPR application. REMEMBER: always authenticate and include token in the header
 
-
-# Group Student Creation
-Creating students, will be deprecated after GT authenticaiton provided
-
-## Student Creation Endpoint [/users/]
-
-## Create Student [POST]
-+ Request (application/json)
-
-    + Body
-    
-            {'username': 'student0', 'password': 'student0'}
-
-+ Response 201 (application/json)
-
-    + Body 
-    
-            {
-                "id": 5,
-                "username": "student6"
-            }
 
 # Group Auth Token
-Get an Authorization Token, will be replaced by GT auth soon...
+Get an Authorization Token, there are three types of users: root, SWAPRInstructor, SWAPRUser (students). Yes, the root password and username is 'root', and 'root' respectively
 
 ## Token [/api-token-auth/]
 
@@ -38,8 +16,8 @@ Get an Authorization Token, will be replaced by GT auth soon...
     + Body
     
             {
-                'password': 'student0',
-                'username': 'student0'
+                'password': 'root',
+                'username': 'root'
             }
 
 + Response 201 (application/json)
@@ -50,11 +28,63 @@ Get an Authorization Token, will be replaced by GT auth soon...
                 "token": "dfbd47cd9c5a499fd8d987b44ee064cb4e5bbfb2"
             }
 
+
+# Group Instructor Creation
+Creating students, will be deprecated after GT authentication provided
+
+## SWAPRInstructor Endpoint [/swaprinstructors/]
+
+## Create SWAPRInstructor [POST]
++ Request (application/json)
+
+    + Body
+    
+            {'username': 'teacher0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
+
++ Response 201 (application/json)
+
+    + Body 
+    
+            {"id": 1, "username": "teacher0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
+
++ Response 400 (application/json)
+
+    + Body 
+    
+            {"error": "django user with username already exists"}
+         
+         
+# Group SWAPRUser Creation
+Creating students, will be deprecated after GT authenticaiton provided
+
+## Student Endpoint [/swaprusers/]
+
+## Create SWAPRUser [POST]
++ Request (application/json)
+
+    + Body
+    
+            {'username': 'student0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
+
++ Response 201 (application/json)
+
+    + Body 
+    
+            {"id": 1, "username": "student0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
+
++ Response 400 (application/json)
+
+    + Body 
+    
+            {"error": "django user with username already exists"}
+
+
 # Group Grades
 Deprecated, look in assignments
 
 ## Grade [/grades/{id}]
 Deprecated, look in assignments
+
 
 # Group Assignments
 ## Assignments [/assignments]
@@ -64,28 +94,32 @@ Assignments related resources of the **SWAPR API**
 + Response 200 (application/json)
 
         [
-                {
-                    "id": 1, 
-                    "assigner": "chris wang setupscript", 
-                    "description": "assignment number 1 for courseNumber 1", 
-                    "type": "submission", 
-                    "course": 1, 
-                    "due_date": "2014-01-02T04:56:00Z", 
-                    "date_posted": "2015-02-10T05:53:17.104Z"
-                }, 
-                {
-                    "id": 2, 
-                    "assigner": "chris wang setupscript", 
-                    "description": "assignment number 2 for courseNumber 1", 
-                    "type": "submission", 
-                    "course": 1, 
-                    "due_date": "2014-01-03T04:56:00Z", 
-                    "date_posted": "2015-02-10T05:53:17.104Z"
-                }
+            {
+                "id": 1, 
+                "swaprinstructor": "teacher", 
+                "description": "submission assignment number 1 for courseNumber 1", 
+                "type": "submission", 
+                "course": "course0", 
+                "due_date": "2014-01-02T04:56:00Z", 
+                "date_posted": "2015-03-16T04:52:00.108Z", 
+                "related_assignment": null, 
+                "grade": null
+            }, 
+            {
+                "id": 2, 
+                "swaprinstructor": "teacher", 
+                "description": "evaluation assignment submission assignment number 1", 
+                "type": "evaluation", 
+                "course": "course0", 
+                "due_date": "2014-01-02T04:56:00Z", 
+                "date_posted": "2015-03-16T04:52:00.108Z", 
+                "related_assignment": 1, 
+                "grade": null
+            }
         ]
 
 ## Assignment [/assignments/{id}]
-A single Assignment object with all its details.
+A single Assignment object with all its details. this DOES NOT get an video url for the student to grade
 
 + Parameters
     + id (required, string) ... String `id` of the assignment to retrieve.
@@ -94,175 +128,186 @@ A single Assignment object with all its details.
 + Response 200 (application/json)
 
         {
-            "id": 17, 
-            "assigner": "chris wang setupscript", 
-            "description": "assignment number 1 for courseNumber 1", 
+            "id": 2, 
+            "swaprinstructor": 1, 
+            "description": "evaluation assignment submission assignment number 1", 
             "type": "evaluation", 
             "course": 1, 
             "due_date": "2014-01-02T04:56:00Z", 
-            "date_posted": "2015-02-10T05:53:17.104Z", 
+            "date_posted": "2015-03-16T04:52:00.108Z", 
+            "related_assignment": 1, 
             "items": [
                 {
                     "id": 1, 
-                    "question": "item #1 for assignment number: 1 for class number 1", 
+                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1", 
                     "max_value": 5, 
-                    "assignment": 17
+                    "assignment": 2
                 }, 
                 {
                     "id": 2, 
-                    "question": "item #2 for assignment number: 1 for class number 1", 
+                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1", 
                     "max_value": 5, 
-                    "assignment": 17
+                    "assignment": 2
                 }, 
                 {
                     "id": 3, 
-                    "question": "item #3 for assignment number: 1 for class number 1", 
+                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1", 
                     "max_value": 5, 
-                    "assignment": 17
+                    "assignment": 2
                 }, 
                 {
                     "id": 4, 
-                    "question": "item #4 for assignment number: 1 for class number 1", 
+                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1", 
                     "max_value": 5, 
-                    "assignment": 17
+                    "assignment": 2
                 }
             ], 
-            "grade": {
-                "score": 1, 
-                "max_score": 9999999999
-            }
+            "grade": null
         }
 
-## Create Submission Assignment [/assignments/submission/]
-In the final you should be able to post to just /assignments/, I will update this once I figure out apiary
+## Create Submission Assignment [/assignments/]
+make sure type is submission, regular post request
 
 ## Make Submission Assignment [POST]
 + Request (application/x-www-form-urlencoded)
 
     + Body
     
-            { 
-                "type" : "submission"
-                "description" : "Description",
-                "due_date": "A DateTime",
-                "assigner": "instructor (might be done through auth in future)",
+            {
+                'assigner': 'chris wang setupscript',
+                 'course': 1,
+                 'description': 'submission assignment number 1 for courseNumber 1',
+                 'due_date': datetime.datetime(2014, 1, 2, 0, 0),
+                 'type': 'submission'
             }
 
 + Response 201
-
-## Create Evaluation Assignment [/assignments/evaluation]
-In the final you should be able to post to just /assignments/, I will update this once I figure out apiary
-## Make Evaluation Assignment [POST]
-+ Request (application/x-www-form-urlencoded)
 
     + Body
     
             {
-                "type" : "evaluation"
-                'assigner': 'chris wang setupscript (might be done through auth in future)',
-                  'description': 'assignment number 4 for courseNumber 4',
-                  'due_date': '2014-01-05T00:00:00-04:56',
-                  'items': [{'description': 'item #1 for assignment number: 4 for class number 4',
-                             'max_value': 5},
-                            {'description': 'item #2 for assignment number: 4 for class number 4',
-                             'max_value': 5},
-                            {'description': 'item #3 for assignment number: 4 for class number 4',
-                             'max_value': 5},
-                            {'description': 'item #4 for assignment number: 4 for class number 4',
-                             'max_value': 5}]
+                'course': 1,
+                 'date_posted': '2015-03-16T01:01:03.775-04:00',
+                 'description': 'submission assignment number 1 for courseNumber 1',
+                 'due_date': '2014-01-02T00:00:00-04:56',
+                 'id': 1,
+                 'related_assignment': None,
+                 'swaprinstructor': 1,
+                 'type': 'submission'
             }
+
+
+## Create Evaluation Assignment [/assignmentsTHISMAKESITNOTDUPLICATE/]
+make sure type is evaluation! this call is JSON
+## Make Evaluation Assignment [POST]
++ Request (application/json)
+
+    + Body
+    
+            {'course': 1,
+             'description': 'evaluation assignment submission assignment number 1',
+             'due_date': '2014-01-02T00:00:00-04:56',
+             'items': [{'max_value': 5,
+                        'question': 'item #1 for assignment number: 2 for class number 1 related to assignment number:1'},
+                       {'max_value': 5,
+                        'question': 'item #2 for assignment number: 2 for class number 1 related to assignment number:1'},
+                       {'max_value': 5,
+                        'question': 'item #3 for assignment number: 2 for class number 1 related to assignment number:1'},
+                       {'max_value': 5,
+                        'question': 'item #4 for assignment number: 2 for class number 1 related to assignment number:1'}],
+             'related_assignment': 1,
+             'type': 'evaluation'}
 + Response 201
 
-# Group getAssignments
+    + Body
+    
+            {
+                'course': 1,
+                'date_posted': '2015-03-16T01:09:59.096-04:00',
+                'description': 'evaluation assignment submission assignment number 2',
+                'due_date': '2014-01-03T00:00:00-04:56',
+                'id': 4,
+                'related_assignment': 2,
+                'swaprinstructor': 1,
+                'type': 'evaluation'
+            }
+
+# Group getURLToGrade
 get assignment meta data
 
-## GetAssignment [/getAssignments/{course_id}]
+## getURLToGrade [/getUrlToGrade/?assignment={assignment_id}]
 Get assignment meta-data for a specific course
 
 + Parameters
-    + id (required, string) ... String course_id of the course's assignments requested
+    + id (required, string) ... String ASSIGNMENT_ID of an evaluation assignment
 
 ### retrieve assignment metadata for a course [GET]
 + Response 200 (application/json)
 
-        [
-            {
-                "id": 1, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 1 for courseNumber 1", 
-                "type": "submission", 
-                "course": 1, 
-                "due_date": "2014-01-02T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z", 
-                "grade": {
-                    "score": 50, 
-                    "max_score": 100
+        {
+            "url": "url for student 3 for assignment 1", 
+            "items": [
+                {
+                    "id": 1, 
+                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 2, 
+                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 3, 
+                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 4, 
+                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
                 }
-            }, 
-            {
-                "id": 2, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 2 for courseNumber 1", 
-                "type": "submission", 
-                "course": 1, 
-                "due_date": "2014-01-03T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z"
-            }, 
-            {
-                "id": 3, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 3 for courseNumber 1", 
-                "type": "submission", 
-                "course": 1, 
-                "due_date": "2014-01-04T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z"
-            }, 
-            {
-                "id": 4, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 4 for courseNumber 1", 
-                "type": "submission", 
-                "course": 1, 
-                "due_date": "2014-01-05T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z"
-            }, 
-            {
-                "id": 17, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 1 for courseNumber 1", 
-                "type": "evaluation", 
-                "course": 1, 
-                "due_date": "2014-01-02T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z"
-            }, 
-            {
-                "id": 18, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 2 for courseNumber 1", 
-                "type": "evaluation", 
-                "course": 1, 
-                "due_date": "2014-01-03T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z"
-            }, 
-            {
-                "id": 19, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 3 for courseNumber 1", 
-                "type": "evaluation", 
-                "course": 1, 
-                "due_date": "2014-01-04T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z"
-            }, 
-            {
-                "id": 20, 
-                "assigner": "chris wang setupscript", 
-                "description": "assignment number 4 for courseNumber 1", 
-                "type": "evaluation", 
-                "course": 1, 
-                "due_date": "2014-01-05T04:56:00Z", 
-                "date_posted": "2015-02-10T05:53:17.104Z"
-            }
-        ]
+            ], 
+            "submission": 1
+        }
+        
+# Group EvaluationItems
+After you get a url to grade, this is how you submit your evaluations
+
+## EvaluationItems [/evaluationItems/]
+list of items that you are evaluating
+### Enroll a Course [POST]
+
++ Request (application/x-www-form-urlencoded)
+
+    + Body
+    
+            [{'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 1,
+              'item': 1,
+              'rating': 2},
+             {'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 2,
+              'item': 2,
+              'rating': 2},
+             {'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 3,
+              'item': 3,
+              'rating': 2},
+             {'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 4,
+              'item': 4,
+              'rating': 2}]
++ Response 201
+
 
 # Group Courses
 All operations that have to do with getting grade information.
@@ -350,30 +395,21 @@ A single course
                 1, 5, 6, 8, 2
             ]
         }
+        
+## Course [/coursesNOTDUPLICATE/{id}]
+A single course
 
-# Group Profile
-Profile related resoures of the **SWAPR API**. Not in rest framework at the moment...
++ Parameters
+    + id (required, string) ... String `id` of the assignment to retrieve.
 
-## Profile [/profile]
-A profile object.
+### Enroll a Course [POST]
 
-### Retrieve a Profile [GET]
++ Request (application/x-www-form-urlencoded)
 
-+ Response 200 (application/json)
+    + Body
+    
+            {
+                'enroll': True
+            }
 
-        {
-            "name": "George P. Burdell",
-            "major": "Industrial Engineer",
-            "tagline": "Loves bones and sticks",
-            "profileImage": "http://labsandbuddies.org/IMAGES/clay%20puppy%20profile.JPG"
-        }
-
-## Profile [/profile/{id}]
-A Profile object. Not implemented in rest framework
-
-### Retrieve a Profile [GET]
-+ Response 200 (application/json)
-
-        {
-            "name": "John Doe"
-        }
++ Response 201
