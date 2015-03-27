@@ -5,5 +5,9 @@
 angular.module('swapr', []);
 
 angular.module('swapr').constant('CONSTANTS', {
-    'BASE_URL': 'http://private-a85d0-swaprapi.apiary-mock.com/'
+    'BASE_URL': 'http://104.236.10.197/'
 });
+
+angular.module('swapr').config(['$httpProvider', 'AuthProvider', function ($httpProvider, AuthProvider) {
+    $httpProvider.defaults.headers.common.Authorization = 'Token ' + AuthProvider.getToken()
+}]);
