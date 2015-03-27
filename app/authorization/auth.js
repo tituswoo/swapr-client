@@ -2,12 +2,12 @@
  * Created by tituswoo on 3/26/15.
  */
 
-angular.module('swapr').provider('Auth', function () {
+angular.module('swapr').factory('Auth', ['$http', '$q', 'CONSTANTS', function ($http, $q, CONSTANTS) {
     var token = '';
     var that = this;
 
-    function factory() {};
-    factory.prototype.login = function (user) {
+    var factory = {};
+    factory.login = function (user) {
         return $q(function (resolve, reject) {
             $http({
                 method: 'POST',
@@ -26,11 +26,5 @@ angular.module('swapr').provider('Auth', function () {
         });
     };
 
-    factory.prototype.getToken = function () {
-        return that.token || false;
-    };
-
-    this.$get = function($http) {
-        return ;
-    }
-});
+    return factory;
+}]);
