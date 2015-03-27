@@ -44,6 +44,5 @@ angular.module('swapr').factory('Auth', ['$http', '$q', 'localStorageService', '
             localStorageService.remove('token');
             if (refresh) location.reload();
         };
-
         return factory;
     }]);

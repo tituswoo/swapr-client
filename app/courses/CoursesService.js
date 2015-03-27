@@ -4,6 +4,9 @@
 
 angular.module('swapr').factory('Courses', ['$http', 'ajax', '$q', function ($http, ajax, $q) {
     // @todo: implement caching at some point.
+
+    //get username, password from modal
+    Auth.login({username: 'root', password: 'root'});
     return {
         getCourses: function () {
             return ajax.get('courses');
