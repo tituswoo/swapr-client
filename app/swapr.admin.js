@@ -8,18 +8,13 @@ angular.module('swapr.admin').config(['localStorageServiceProvider', function(lo
     localStorageServiceProvider.setPrefix('swapr.admin');
 }]);
 
-angular.module('swapr.admin').controller('MainCtrl', ['$scope', '$http', 'Auth', function($scope, $http, Auth) {
-    Auth.login({
-        username: 'root',
-        password: 'root'
-    }).then(function () {
-        console.log('success');
-    }).catch(function () {
-        console.log('problem logging in');
-    }).finally(function () {
-        console.log(Auth.getToken());
-    });
+angular.module('swapr.admin').controller('MainCtrl', ['$scope', 'Auth', function($scope, Auth) {
+
 }]);
+
+angular.module('swapr.admin').run(function (Auth) {
+
+});
 
 angular.module('swapr.admin').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');

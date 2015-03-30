@@ -200,7 +200,7 @@
     <object type="LMREQUEST" id="z115">
         <attribute name="body" type="string">[{"data":{"keyValues":[["asdfasdf","asdfasdfasdfasd",false],["asdfasdf","asdfasdf",false]]},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
         <attribute name="uuid" type="string">D67B2D4C-2D7C-4387-80CE-8AC3D21CDC23</attribute>
-        <attribute name="url" type="string">http://104.236.10.197/courses/?limit=20</attribute>
+        <attribute name="url" type="string">http://104.236.10.197/courses</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -261,7 +261,7 @@
     </object>
     <object type="LMREQUEST" id="z120">
         <attribute name="uuid" type="string">E1EEFFB0-5F02-4385-8D7D-3E9726420BCD</attribute>
-        <attribute name="url" type="string">http://104.236.10.197/assignments/</attribute>
+        <attribute name="url" type="string">http://104.236.10.197/assignments</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -273,7 +273,7 @@
         <attribute name="name" type="string">Get assignments</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z108"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z122 z121"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z121 z122"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z121">
         <attribute name="value" type="string"></attribute>
@@ -384,7 +384,7 @@
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z130 z131"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z130">
-        <attribute name="value" type="string">Token 09bffea0b3995d821d4f276eda3bc4e30e0b5763</attribute>
+        <attribute name="value" type="string">Token 168918efd811a028c86aa5968a7ad09122387d4546534</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
