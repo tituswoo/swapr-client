@@ -9,7 +9,16 @@ angular.module('swapr.admin').config(['localStorageServiceProvider', function(lo
 }]);
 
 angular.module('swapr.admin').controller('MainCtrl', ['$scope', 'Auth', function($scope, Auth) {
+    $scope.login = function () {
+        Auth.login({
+            username: 'root',
+            password: 'root'
+        }, true);
+    };
 
+    $scope.logout = function () {
+        Auth.logout(true);
+    };
 }]);
 
 angular.module('swapr.admin').run(function (Auth) {

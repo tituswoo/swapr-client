@@ -6,15 +6,4 @@ angular.module('swapr.admin').controller('CoursesCtrl', ['$scope', 'Courses', 'A
     Courses.getCourses().then(function (courses) {
         $scope.courses = courses;
     });
-
-    $scope.login = function () {
-        Auth.login({
-            username: 'root',
-            password: 'root'
-        }, true);
-    };
-
-    $scope.logout = function () {
-        Auth.logout(true);
-    }
 }]);
