@@ -6,7 +6,7 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
     Courses.getCourse($stateParams.id).then(function (course) {
         $scope.course = course;
 
-        Assignments.getAssignments().then(function (assignments) {
+        Assignments.getAssignments($stateParams.id).then(function (assignments) {
             $scope.assignments = assignments;
         });
     });

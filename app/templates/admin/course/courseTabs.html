@@ -1,10 +1,13 @@
 <tabset>
     <tab heading="Assignments">
-        <ul>
+        <ul ng-if="assignments.length > 0">
             <ul>
                 <li ng-repeat="a in assignments"><a ng-click="editAssignment(a)">{{a.description}}</a></li>
             </ul>
         </ul>
+        <div ng-if="assignments.length < 1">
+            <p>This course has no assignments.</p>
+        </div>
     </tab>
     <tab heading="Students">
         <p>A list of all students in the class will go in here.</p>

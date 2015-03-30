@@ -155,7 +155,7 @@
         <attribute name="name" type="string">Make a user</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z108"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z111 z113"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z113 z111"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z111">
         <attribute name="value" type="string">Token 168918efd811a028c86aa5968a7ad09122387d0a</attribute>
@@ -234,7 +234,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z119"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z118">
-        <attribute name="value" type="string">Token 09bffea0b3995d821d4f276eda3bc4e30e0b5763</attribute>
+        <attribute name="value" type="string">Token 5657d7e564e217b16e58b61aaf009b2f95c86515</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
@@ -253,7 +253,7 @@
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="body" type="string">[{"data":{},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
-        <attribute name="order" type="int64">8</attribute>
+        <attribute name="order" type="int64">9</attribute>
         <attribute name="name" type="string">Get courses by ID</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z108"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -269,7 +269,7 @@
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="body" type="string">[{"data":{},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
-        <attribute name="order" type="int64">9</attribute>
+        <attribute name="order" type="int64">10</attribute>
         <attribute name="name" type="string">Get assignments</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z108"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -286,7 +286,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z120"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z122">
-        <attribute name="value" type="string">Token 09bffea0b3995d821d4f276eda3bc4e30e0b5763</attribute>
+        <attribute name="value" type="string">Token 5657d7e564e217b16e58b61aaf009b2f95c86515</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
@@ -297,7 +297,7 @@
     </object>
     <object type="LMREQUEST" id="z123">
         <attribute name="uuid" type="string">A62D0A37-7E28-462A-A6C5-180E8A382C57</attribute>
-        <attribute name="url" type="string">http://104.236.10.197/assignments/2/</attribute>
+        <attribute name="url" type="string">http://104.236.10.197/assignments/?course=1</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -305,8 +305,8 @@
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="body" type="string">[{"data":{},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
-        <attribute name="order" type="int64">10</attribute>
-        <attribute name="name" type="string">Get assignment by ID</attribute>
+        <attribute name="order" type="int64">8</attribute>
+        <attribute name="name" type="string">Get assignment by ID in course 1</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z108"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z125 z124"></relationship>
@@ -322,7 +322,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z123"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z125">
-        <attribute name="value" type="string">Token 09bffea0b3995d821d4f276eda3bc4e30e0b5763</attribute>
+        <attribute name="value" type="string">Token 5657d7e564e217b16e58b61aaf009b2f95c86515</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
