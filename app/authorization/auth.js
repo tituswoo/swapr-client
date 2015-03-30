@@ -10,7 +10,6 @@ angular.module('swapr').factory('Auth', ['$http', '$q', 'localStorageService', '
 
         var factory = {};
         factory.login = function (user, refresh) {
-            console.log(user);
             refresh = refresh || false;
             return $q(function (resolve, reject) {
                 if (token) {
