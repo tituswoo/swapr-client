@@ -5,13 +5,12 @@
 angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams', 'Courses', 'Assignments', function ($scope, $stateParams, Courses, Assignments) {
     Courses.getCourse($stateParams.id).then(function (course) {
         $scope.course = course;
+
+        Assignments.getAssignments().then(function (assignments) {
+            $scope.assignments = assignments;
+        });
     });
-    //    .then(function (res) {
-    //        Assignments.getAssignments(res.data.id).then(function (assignments) {
-    //            $scope.assignments = assignments;
-    //        });
-    //    }
-    //);
+
     $scope.editAssignment = function (a) {
         console.log(a);
         $scope.changeView(a);

@@ -12,8 +12,9 @@ html, body {
 }
 
 a:hover {
-    color: inherit;
-    text-decoration: inherit;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 ul, li {

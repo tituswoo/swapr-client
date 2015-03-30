@@ -12,7 +12,6 @@ angular.module('swapr').factory('ajax', ['CONSTANTS', 'Auth', '$http', '$q', fun
                     'Authorization': 'Token ' + Auth.getToken()
                 }
             }).success(function (data) {
-                console.log('success');
                 resolve(data);
             }).error(function (e) {
                 console.log(Auth.getToken());
