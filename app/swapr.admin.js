@@ -11,8 +11,16 @@ angular.module('swapr.admin').config(['localStorageServiceProvider', function(lo
 angular.module('swapr.admin').controller('MainCtrl', ['$scope', '$http', 'Auth', '$modal', function($scope, $http, Auth, $modal) {
     $modal.open({
         templateUrl: 'templates/loginModal.html',
-        size: 'lg'
+        size: 'lg',
+        scope: $scope
     });
+
+    $scope.closeModal = function() {
+        console.log("Closing modal");
+        $modal.destroy();
+        //TODO: pass in password and username to Auth
+    };
+
     Auth.login({
         username: 'root',
         password: 'root'
