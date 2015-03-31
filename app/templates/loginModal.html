@@ -4,21 +4,19 @@
         <h4 class="modal-title">Login</h4>
     </div>
     <div class="modal-body">
-        <div class="form">
+        <form name="loginModal" ng-submit="modalLogin(username,password)">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" ng-model="username" placeholder="Username">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="text" class="form-control" id="password" ng-model="password" placeholder="Password">
+                <input type="password" class="form-control" id="password" ng-model="password" placeholder="Password">
             </div>
             <div class="panel-warning" ng-show="loginError">
                 There was an error logging in. Please try again.
             </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" ng-click="modalLogin(username, password)">Login</button>
+            <button type="submit" ng-click="modalLogin(username, password)">Login</button>
+        </form>
     </div>
 </div>
