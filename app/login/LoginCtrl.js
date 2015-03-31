@@ -6,18 +6,18 @@ angular.module('swapr').controller('LoginCtrl', ['$scope', 'Auth', function ($sc
     $scope.username = null;
     $scope.password = null;
     console.log("Using login controller!");
-    $scope.login = function(username, password) {
+    $scope.modalLogin = function(username, password) {
         console.log(username, password);
         Auth.login({
             username: username,
             password: password
         }, true)
             .then(function () {
-            console.log('success');
+            console.log('Success');
             $scope.loginError = false;
             $scope.closeLoginModal();
         }).catch(function () {
-            console.log('problem logging in');
+            console.log('Problem logging in');
             $scope.loginError = true;
         }).finally(function () {
             console.log(Auth.getToken());

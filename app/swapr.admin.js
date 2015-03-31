@@ -25,17 +25,10 @@ angular.module('swapr.admin').controller('MainCtrl', ['$scope', '$http', 'Auth',
     };
 
     $scope.login = function () {
-        /*
-        Auth.login({
-            username: 'root',
-            password: 'root'
-        }, true);
-        */
         $scope.openLoginModal();
     };
 
     $scope.logout = function () {
-        console.log("Logging out");
         Auth.logout(true);
     };
 }]);
