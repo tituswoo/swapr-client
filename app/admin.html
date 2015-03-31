@@ -15,6 +15,7 @@
 
     <script type="text/javascript" src="swapr.js"></script>
     <script type="text/javascript" src="swapr.admin.js"></script>
+    <script type="text/javascript" src="ajax.js"></script>
     <script type="text/javascript" src="authorization/auth.js"></script>
     <script type="text/javascript" src="courses/CoursesService.js"></script>
     <script type="text/javascript" src="assignments/AssignmentsService.js"></script>
@@ -25,6 +26,7 @@
     <script type="text/javascript" src="courses/admin/PeerReviewCtrl.js"></script>
     <script type="text/javascript" src="profile/ProfileCtrl.js"></script>
     <script type="text/javascript" src="profile/ProfileService.js"></script>
+    <script type="text/javascript" src="users/UsersService.js"></script>
 
     <title>SWAPR - Admin</title>
 </head>
@@ -33,7 +35,8 @@
     <h1><a ui-sref="home">SWAPR - ADMIN</a></h1>
 
     <div id="profile-menu" ui-sref="profile">
-        <p>Mr. Administrator</p>
+        <button ng-click="login()">Login</button>
+        <button ng-click="logout()">Logout</button>
     </div>
 </div>
 <div id="sidebar" ng-include="'templates/admin/sidebar.html'"></div>

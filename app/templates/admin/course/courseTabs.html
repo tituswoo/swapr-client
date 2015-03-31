@@ -1,13 +1,34 @@
 <tabset>
     <tab heading="Assignments">
-        <ul>
+        <ul ng-if="assignments.length > 0">
             <ul>
-                <li ng-repeat="a in assignments"><a ng-click="editAssignment(a)">{{a.description}}:{{a.type}}</a></li>
+                <li ng-repeat="a in assignments"><a ng-click="editAssignment(a)">{{a.description}}</a></li>
             </ul>
         </ul>
+        <div ng-if="assignments.length < 1">
+            <p>This course has no assignments.</p>
+        </div>
     </tab>
-    <tab heading="Students">
-        <p>A list of all students in the class will go in here.</p>
+    <tab heading="Students" ng-click="loadStudents()">
+        <table class="table table-striped" ng-if="students.length > 0">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="s in students">
+                    <td>{{ s.username }}</td>
+                    <td>{{ s.first_name }}</td>
+                    <td>{{ s.last_name }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="students.length < 1">
+            <p>There are no students in this course.</p>
+        </div>
     </tab>
     <tab heading="Details">
         <p>Name: {{course.name}}</p>
