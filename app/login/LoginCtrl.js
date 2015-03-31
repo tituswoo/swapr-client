@@ -13,6 +13,7 @@ angular.module('swapr').controller('LoginCtrl', ['$scope', 'Auth', function ($sc
         }).then(function () {
             console.log('success');
             $scope.loginError = false;
+            $scope.closeModal();
         }).catch(function () {
             console.log('problem logging in');
             $scope.loginError = true;
