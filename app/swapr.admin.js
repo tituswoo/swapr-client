@@ -10,19 +10,9 @@ angular.module('swapr.admin').config(['localStorageServiceProvider', function(lo
 
 angular.module('swapr.admin').controller('MainCtrl', ['$scope', '$http', 'Auth', '$modal', function($scope, $http, Auth, $modal) {
 
-    var modalInstance = $modal.open({
-        templateUrl: 'templates/loginModal.html',
-        size: 'lg',
-        scope: $scope
-    });
-
-    $scope.loggedIn = Auth.getToken();
-
-    $scope.closeModal = function() {
+    $scope.closeLoginModal = function() {
         console.log("Closing modal");
         modalInstance.close();
-        $scope.loggedIn = Auth.getToken();
-        console.log($scope.loggedIn);
     };
 
     $scope.openLoginModal = function() {
@@ -35,13 +25,17 @@ angular.module('swapr.admin').controller('MainCtrl', ['$scope', '$http', 'Auth',
     };
 
     $scope.login = function () {
+        /*
         Auth.login({
             username: 'root',
             password: 'root'
         }, true);
+        */
+        $scope.openLoginModal();
     };
 
     $scope.logout = function () {
+        console.log("Logging out");
         Auth.logout(true);
     };
 }]);
