@@ -2,7 +2,7 @@
  * Created by tituswoo on 2/16/15.
  */
 
-angular.module('swapr').factory('Courses', ['$http', 'ajax', '$q', function ($http, ajax, $q) {
+angular.module('swapr').factory('Courses', ['$http', 'ajax', '$q', 'Auth', function ($http, ajax, $q, Auth) {
     // @todo: implement caching at some point.
 
     //get username, password from modal
