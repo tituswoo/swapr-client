@@ -28,6 +28,16 @@ button {
     }
 }
 
+button.close{
+  color: #333333;
+  background-color: white;
+  border-color: white;
+  padding: 0px;
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+}
+
 input {
     @include common;
     padding-bottom: 1px;
