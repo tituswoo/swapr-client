@@ -1,3 +1,36 @@
+<!--TODO: back button-->
+<!--
 <p>This is the peer review page</p>
 <button ng-click="controllerTest()">Controller Test</button>
 <button ng-click="parentControllerTest()">Parent Controller Test</button>
+-->
+
+<h1>{{$parent.curCourse.description}}</h1>
+
+<form name="peerReview" ng-submit="save()">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" ng-model="description" placeholder="{{$parent.curCourse.description}}" required>
+    </div>
+    <div class="dropdown">
+        <label for="type">Type:</label>
+        <select id="type" ng-model="curCourse.type" ng-options="typeOption for typeOption in typeOptions"></select>
+    </div>
+    <div class="form-group">
+        <label for="instructions">Instructions:</label>
+        <input type="text" class="form-control" id="instructions" ng-model="instructions">
+    </div>
+    <div class="form-group">
+        <label for="due-date">Due date:</label>
+        <datepicker id="due-date" ng-model="curCourse.duedate"></datepicker>
+    </div>
+    <div class="form-group">
+        <label for="accept-resub">Accept resubmissions:</label>
+        <select id="accept-resub" ng-model="curCourse.resub" ng-options="boolOption for boolOption in boolOptions"></select>
+    </div>
+    <div class="form-group">
+        <label for="allow-late">Allow late submissions:</label>
+        <select id="allow-late" ng-model="curCourse.latesub" ng-options="boolOption for boolOption in boolOptions"></select>
+    </div>
+    <button type="submit" ng-click="save()">Save changes</button>
+</form>
