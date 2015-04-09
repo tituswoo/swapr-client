@@ -13,7 +13,7 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
     });
 
     $scope.editAssignment = function (a) {
-        console.log(a);
+        $scope.currentAssignment = a;
         $scope.changeView(a);
     };
 
@@ -21,7 +21,7 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
         // @todo: add option to filter user type. Assume they're all students for now.
         Users.getUsers($stateParams.id).then(function (users) {
             $scope.students = users;
-        })
+        });
     };
 
     $scope.curView = 'tabView@courses.course';
