@@ -7,7 +7,7 @@ angular.module('swapr.admin').controller('VideoUploadCtrl', ['$scope', '$state',
     $scope.cancel = function () {
         var confirmed = confirm('Are you sure? All changes will be lost.');
         if (confirmed) {
-            $state.go('courses.courses');
+            $state.reload();
         }
     };
 }]);
