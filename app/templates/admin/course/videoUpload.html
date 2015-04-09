@@ -1,0 +1,48 @@
+<h2>Video Upload</h2>
+<!--
+<form class="form-horizontal">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="email"/>
+    </div>
+    <div class="form-group">
+        <label>Instructions</label>
+        <textarea></textarea>
+    </div>
+</form>-->
+
+<form>
+    <div class="form-group">
+        <label>Title</label>
+        <input type="email" class="form-control" ng-required="true" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <label>Instructions</label>
+        <textarea class="form-control" placeholder="Instructions"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Due Date</label>
+        <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup ng-model="dueDate" is-open="opened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+        </p>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox"/> Accept resubmissions
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox"/> Accept late submissions
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox"/> Visible
+        </label>
+    </div>
+    <div class="form-group">
+        <button type="submit">Save changes</button>
+        <button>Cancel</button>
+    </div>
+</form>

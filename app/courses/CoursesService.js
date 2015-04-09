@@ -3,8 +3,6 @@
  */
 
 angular.module('swapr').factory('Courses', ['$http', 'ajax', '$q', 'Auth', function ($http, ajax, $q, Auth) {
-    // @todo: implement caching at some point.
-
     return {
         getCourses: function () {
             return ajax.get('courses');

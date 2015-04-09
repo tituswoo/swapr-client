@@ -28,6 +28,8 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
     $scope.changeView = function (a) {
         if (a.type === 'evaluation') {
             $scope.curView = 'peerReview@courses.course';
+        } else if (a.type === 'submission') {
+            $scope.curView = 'videoUpload@courses.course';
         }
     };
     $scope.parentControllerTest = function () {

@@ -188,7 +188,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z110"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z114">
-        <attribute name="value" type="string">Token 168918efd811a028c86aa5968a7ad09122387d0a</attribute>
+        <attribute name="value" type="string">Token 2e02d6bcbdcfe26a49ca9cc1a542d88bf96aa6d8</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
@@ -234,7 +234,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z119"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z118">
-        <attribute name="value" type="string">Token 5657d7e564e217b16e58b61aaf009b2f95c86515</attribute>
+        <attribute name="value" type="string">Token 2e02d6bcbdcfe26a49ca9cc1a542d88bf96aa6d8</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
@@ -286,7 +286,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z120"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z122">
-        <attribute name="value" type="string">Token 5657d7e564e217b16e58b61aaf009b2f95c86515</attribute>
+        <attribute name="value" type="string">Token 2e02d6bcbdcfe26a49ca9cc1a542d88bf96aa6d8</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
@@ -322,7 +322,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z123"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z125">
-        <attribute name="value" type="string">Token 5657d7e564e217b16e58b61aaf009b2f95c86515</attribute>
+        <attribute name="value" type="string">Token 2e02d6bcbdcfe26a49ca9cc1a542d88bf96aa6d8</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Authorization</attribute>
         <attribute name="enabled" type="bool">1</attribute>
