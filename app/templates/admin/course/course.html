@@ -1,4 +1,4 @@
 <h1 class="title">{{ course.name }}</h1>
-<div ng-show="curView == 'tabView@courses.course'" ui-view='tabView@courses.course'></div>
-<div ng-show="curView == 'peerReview@courses.course'" ui-view='peerReview@courses.course'></div>
-<div ng-show="curView == 'videoUpload@courses.course'" ui-view='videoUpload@courses.course'></div>
+<div ng-if="curView === 'tabView@courses.course'" ui-view='tabView@courses.course'></div>
+<div ng-if="curView === 'peerReview@courses.course'" ui-view='peerReview@courses.course'></div>
+<div ng-if="curView === 'videoUpload@courses.course'" ui-view='videoUpload@courses.course'></div>
