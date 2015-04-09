@@ -3,15 +3,13 @@
  */
 
 angular.module('swapr').controller('LoginCtrl', ['$scope', 'Auth', function ($scope, Auth) {
-    $scope.username = null;
-    $scope.password = null;
-    console.log("Using login controller!");
-    $scope.modalLogin = function(username, password) {
-        console.log(username, password);
-        Auth.login({
-            username: username,
-            password: password
-        }, true)
+    $scope.user = {
+        username: '',
+        password: ''
+    };
+
+    $scope.modalLogin = function() {
+        Auth.login($scope.user, true)
             .then(function () {
             console.log('Success');
             $scope.loginError = false;
