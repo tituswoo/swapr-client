@@ -5,12 +5,15 @@
 <button ng-click="parentControllerTest()">Parent Controller Test</button>
 -->
 
-<h1>{{$parent.curCourse.description}}</h1>
+<h1>Peer Review</h1>
+<p>{{$parent.curCourse.description}}</p>
+
+<br/>
 
 <form name="peerReview" ng-submit="save()">
     <div class="form-group">
         <label for="title">Title:</label>
-        <input type="text" class="form-control" id="title" ng-model="description" placeholder="{{$parent.curCourse.description}}" required>
+        <input type="text" class="form-control" id="title" ng-model="curCourse.description" required>
     </div>
     <div class="dropdown">
         <label for="type">Type:</label>
@@ -22,15 +25,34 @@
     </div>
     <div class="form-group">
         <label for="due-date">Due date:</label>
+        <!--
         <datepicker id="due-date" ng-model="curCourse.duedate"></datepicker>
+        -->
+        <div class="row" id="due-date">
+            <div class="col-md-6">
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                </p>
+            </div>
+        </div>
     </div>
     <div class="form-group">
-        <label for="accept-resub">Accept resubmissions:</label>
-        <select id="accept-resub" ng-model="curCourse.resub" ng-options="boolOption for boolOption in boolOptions"></select>
+        <label>
+            <input type="checkbox"/> Accept resubmissions
+        </label>
     </div>
     <div class="form-group">
-        <label for="allow-late">Allow late submissions:</label>
-        <select id="allow-late" ng-model="curCourse.latesub" ng-options="boolOption for boolOption in boolOptions"></select>
+        <label>
+            <input type="checkbox"/> Accept late submissions
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox"/> Visible
+        </label>
     </div>
     <button type="submit" ng-click="save()">Save changes</button>
 </form>
