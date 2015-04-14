@@ -14,7 +14,6 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
 
     //Calendar functions
     $scope.today = function() {
-        //$scope.dt = new Date();
         $scope.dt = moment().format($scope.format);
         console.log($scope.dt)
     };
