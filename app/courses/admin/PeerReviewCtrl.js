@@ -7,9 +7,20 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
         $scope.$parent.curCourse.type = 'Peer Review';
     }
     $scope.typeOptions = ['Peer Review', 'Calibration'];
-    $scope.controllerTest = function(){
-        alert("Peer review controller works!");
-        console.log("Peer review controller works!");
+
+    $scope.rubric = [
+        {label: "Organizational Structure", remove:false, feedback: true},
+        {label: "Content Models", remove:true, feedback: false},
+        {label: "Content Prediction Discussion", remove:false, feedback: false},
+        {label: "Content Overall", remove:true, feedback: true},
+        {label: "Production Deilvery", remove:false, feedback: true}
+    ];
+
+    $scope.save = function() {
+        $scope.$parent.curCourse.rubric = $scope.rubric;
+        //TODO: How does Chris want this formatted?
+        $scope.$parent.curCourse.due_date = $scope.dt;
+        console.log($scope.$parent.curCourse);
     };
 
     //Calendar functions
@@ -42,6 +53,5 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
     };
 
     //Note: These are the datepicker's formats, NOT moment compliant
-    $scope.formats = ['dd-MMMM-yyyy', 'MM/dd/yyyy', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[1];
+    $scope.format = 'MM/dd/yyyy';
 }]);

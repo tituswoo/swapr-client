@@ -1,9 +1,4 @@
 <!--TODO: back button-->
-<!--
-<p>This is the peer review page</p>
-<button ng-click="controllerTest()">Controller Test</button>
-<button ng-click="parentControllerTest()">Parent Controller Test</button>
--->
 
 <h1>Peer Review</h1>
 <p>{{$parent.curCourse.description}}</p>
@@ -27,9 +22,6 @@
     </div>
     <div class="form-group">
         <label for="due-date">Due date:</label>
-        <!--
-        <datepicker id="due-date" ng-model="curCourse.duedate"></datepicker>
-        -->
         <div class="row" id="due-date">
             <div class="col-md-6">
                 <p class="input-group">
@@ -43,18 +35,32 @@
     </div>
     <div class="form-group">
         <label>
-            <input type="checkbox"/> Accept resubmissions
+            <input type="checkbox" ng-model="curCourse.allowResub"/> Accept resubmissions
         </label>
     </div>
     <div class="form-group">
         <label>
-            <input type="checkbox"/> Accept late submissions
+            <input type="checkbox" ng-model="curCourse.allowLate"/> Accept late submissions
         </label>
     </div>
     <div class="form-group">
         <label>
-            <input type="checkbox"/> Visible
+            <input type="checkbox" ng-model="curCourse.visible"/> Visible
         </label>
     </div>
+
+    <table>
+        <tr>
+            <th>Label</th>
+            <th>Remove</th>
+            <th>Feedback</th>
+        </tr>
+        <tr ng-repeat="item in rubric">
+            <td>{{item.label}}</td>
+            <td><input type="checkbox" ng-model="item.remove"/></td>
+            <td><input type="checkbox" ng-model="item.feedback"/></td>
+        </tr>
+    </table>
+
     <button type="submit" ng-click="save()">Save changes</button>
 </form>
