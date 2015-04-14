@@ -31,7 +31,7 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
         } else if (a.type === 'submission') {
             $scope.curView = 'videoUpload@courses.course';
         }
-        $scope.curCourse = a;
+        $scope.assignment = a;
     };
     $scope.parentControllerTest = function () {
         alert("Parent controller works");

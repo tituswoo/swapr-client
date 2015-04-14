@@ -3,8 +3,8 @@
  */
 
 angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
-    if ($scope.$parent.curCourse){
-        $scope.$parent.curCourse.type = 'Peer Review';
+    if ($scope.$parent.assignment){
+        $scope.$parent.assignment.type = 'Peer Review';
     }
     $scope.typeOptions = ['Peer Review', 'Calibration'];
 
@@ -17,10 +17,10 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
     ];
 
     $scope.save = function() {
-        $scope.$parent.curCourse.rubric = $scope.rubric;
+        $scope.$parent.assignment.rubric = $scope.rubric;
         //TODO: How does Chris want this formatted?
-        $scope.$parent.curCourse.due_date = $scope.dt;
-        console.log($scope.$parent.curCourse);
+        $scope.$parent.assignment.due_date = $scope.dt;
+        console.log($scope.$parent.assignment);
     };
 
     //Calendar functions
