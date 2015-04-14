@@ -60,9 +60,8 @@
             <th>Feedback</th>
         </tr>
         <tr ng-repeat="item in rubric">
-            <td>{{item.label}}</td>
+            <td>{{item.question}}</td>
             <td><input type="checkbox" ng-model="item.remove"/></td>
-            <td><input type="checkbox" ng-model="item.feedback"/></td>
         </tr>
     </table>
 

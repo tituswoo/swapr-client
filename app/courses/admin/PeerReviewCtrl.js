@@ -2,12 +2,16 @@
  * Created by Vaughan on 3/9/2015.
  */
 
-angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
-    if ($scope.$parent.assignment){
-        $scope.$parent.assignment.type = 'Peer Review';
-    }
+angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$stateParams', 'Rubrics', function ($scope, $stateParams, Rubrics) {
+    Rubrics.getRubrics($scope.$parent.assignment.id).then(function (rubricItems) {
+        //$scope.assignments = assignments;
+        $scope.rubric = rubricItems;
+        console.log(rubricItems);
+    });
+
     $scope.typeOptions = ['Peer Review', 'Calibration'];
 
+    //http://104.236.10.197/items/?assignment=2 (or assignment number)
     $scope.rubric = [
         {label: "Organizational Structure", remove:false, feedback: true},
         {label: "Content Models", remove:true, feedback: false},
