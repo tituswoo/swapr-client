@@ -3,7 +3,7 @@
  */
 
 angular.module('swapr').controller('LoginCtrl', ['$scope', 'Auth', function ($scope, Auth) {
-    $scope.user = {
+    /*$scope.user = {
         username: '',
         password: ''
     };
@@ -13,12 +13,12 @@ angular.module('swapr').controller('LoginCtrl', ['$scope', 'Auth', function ($sc
             .then(function () {
             console.log('Success');
             $scope.loginError = false;
-            $scope.closeLoginModal();
+            //$scope.closeLoginModal();
         }).catch(function () {
             console.log('Problem logging in');
             $scope.loginError = true;
         }).finally(function () {
             console.log(Auth.getToken());
         });
-    };
+    };*/
 }]);

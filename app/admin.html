@@ -17,6 +17,7 @@
     <script type="text/javascript" src="swapr.admin.js"></script>
     <script type="text/javascript" src="ajax.js"></script>
     <script type="text/javascript" src="authorization/auth.js"></script>
+    <script type="text/javascript" src="authorization/session-buttons/session-buttons.js"></script>
     <script type="text/javascript" src="courses/CoursesService.js"></script>
     <script type="text/javascript" src="assignments/AssignmentsService.js"></script>
     <script type="text/javascript" src="assignments/admin/AssignmentsCtrl.js"></script>
@@ -35,11 +36,12 @@
 <body ng-controller="MainCtrl">
 <div id="menubar">
     <h1><a ui-sref="home">SWAPR - ADMIN</a></h1>
+    <div session-buttons></div>
 
-    <div id="profile-menu" ui-sref="profile">
-        <a ng-click="login()">Login</a>
-        <a ng-click="logout()">Logout</a>
-    </div>
+    <!-- <div id="profile-menu" ui-sref="profile">
+         <a ng-click="login()">Login</a>
+         <a ng-click="logout()">Logout</a>
+     </div>-->
 </div>
 <div id="sidebar" ng-include="'templates/admin/sidebar.html'"></div>
 <div id="main" ui-view></div>

@@ -9,13 +9,6 @@ angular.module('swapr.student').config(['localStorageServiceProvider', function(
 }]);
 
 angular.module('swapr.student').controller('MainCtrl', ['$scope', function ($scope) {
-    //Auth.login({
-    //    username: 'root',
-    //    password: 'root'
-    //}).then(function (data) {
-    //    console.log(data);
-    //});
-
     $scope.menuVisible = false;
 
     $scope.toggleMenu = function () {
