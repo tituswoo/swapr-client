@@ -23,7 +23,7 @@ angular.module('swapr').directive('sessionButtons', ['Auth', '$modal', function 
             };
 
             $scope.closeModal = function () {
-                $scope.modal.close();
+                if ($scope.modal) $scope.modal.close();
             };
 
             $scope.login = function () {
