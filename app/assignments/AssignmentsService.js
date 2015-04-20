@@ -12,6 +12,9 @@ angular.module('swapr').factory('Assignments', ['$http', 'CONSTANTS', 'ajax', fu
         getAssignment: function (id) {
             // @todo: this returns the assignments with the provided id, assuming id is unique across ALL courses.
             return ajax.get('assignments/' + id);
+        },
+        updateAssignment: function (assignment) {
+            return ajax.put('assignments/' + assignment.id, assignment);
         }
     };
 }]);
