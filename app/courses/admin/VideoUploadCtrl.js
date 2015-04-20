@@ -1,20 +1,21 @@
 angular.module('swapr.admin').controller('VideoUploadCtrl', ['$scope', '$state', 'Assignments', function ($scope, $state, Assignments) {
     // @todo: get param id to load in the data for the assignment.
-    $scope.currAssignment = $scope.$parent.curCourse;
+    $scope.assignment = $scope.$parent.assignment;
 
-    console.log($scope.curCourse);
+    console.log('assignment:');
+    console.log($scope.assignment);
 
     $scope.dueDateControl = {
         format: 'MMMM dd, yyyy',
-        dueDate: $scope.currAssignment.due_date,
+        dueDate: $scope.assignment.due_date,
         open: function () {
             $scope.opened = true;
         }
     };
 
     $scope.save = function () {
-        $scope.currAssignment.due_date = $scope.dueDateControl.dueDate.toISOString();
-        Assignments.updateAssignment($scope.currAssignment).then(function () {
+        $scope.assignment.due_date = new Date($scope.dueDateControl.dueDate).toISOString();
+        Assignments.updateAssignment($scope.assignment).then(function () {
             alert('assignment saved successfully.');
         }).catch(function (e) {
             alert('Error saving the assignment: ' + e);
