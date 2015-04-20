@@ -22,9 +22,16 @@
 
     #profile-menu {
         position: absolute;
-        top: 5px;
+        top: 0;
         right: 10px;
+        bottom: 0;
         cursor: pointer;
+        margin: auto;
+        height: 50%;
+
+        a:first-child {
+            margin-right: 10px;
+        }
     }
 
     #login-btn {
