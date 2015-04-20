@@ -8,6 +8,8 @@ angular.module('swapr').directive('sessionButtons', ['Auth', '$modal', function 
                 password: ''
             };
 
+            $scope.isLoggedIn = Auth.loggedIn();
+
             $scope.modalLogin = function() {
                 Auth.login($scope.user, true)
                     .then(function () {

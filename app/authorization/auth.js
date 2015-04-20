@@ -9,6 +9,7 @@ angular.module('swapr').factory('Auth', ['$http', '$q', 'localStorageService', '
         console.log('token: ' + token);
 
         var factory = {};
+
         factory.login = function (user, refresh) {
             refresh = refresh || false;
             return $q(function (resolve, reject) {
@@ -44,5 +45,10 @@ angular.module('swapr').factory('Auth', ['$http', '$q', 'localStorageService', '
             localStorageService.remove('token');
             if (refresh) location.reload();
         };
+
+        factory.loggedIn = function () {
+            return !!token;
+        };
+
         return factory;
     }]);
