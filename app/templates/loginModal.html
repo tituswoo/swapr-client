@@ -7,16 +7,16 @@
         <form name="loginModal" ng-submit="modalLogin(username,password)">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" ng-model="username" placeholder="Username" required>
+                <input type="text" autofocus="autofocus" class="form-control" id="username" ng-model="user.username" placeholder="Username" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" ng-model="password" placeholder="Password" required>
+                <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password" required>
             </div>
             <div class="alert alert-warning" role="alert" ng-show="loginError">
                 There was an error logging in. Please try again.
             </div>
-            <button type="submit" ng-click="modalLogin(username, password)">Login</button>
+            <button type="submit" ng-click="modalLogin()">Login</button>
         </form>
     </div>
 </div>

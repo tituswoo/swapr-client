@@ -23,6 +23,7 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
             });
         };
 
+<<<<<<< HEAD
         $scope.curView = 'tabView@courses.course';
         $scope.changeView = function (a) {
             $scope.curCourse = a;
@@ -36,3 +37,18 @@ angular.module('swapr.admin').controller('CourseCtrl', ['$scope', '$stateParams'
             alert("Parent controller works");
         };
     }]);
+=======
+    $scope.curView = 'tabView@courses.course';
+    $scope.changeView = function (a) {
+        if (a.type === 'evaluation') {
+            $scope.curView = 'peerReview@courses.course';
+        } else if (a.type === 'submission') {
+            $scope.curView = 'videoUpload@courses.course';
+        }
+        $scope.assignment = a;
+    };
+    $scope.parentControllerTest = function () {
+        alert("Parent controller works");
+    };
+}]);
+>>>>>>> origin/master
