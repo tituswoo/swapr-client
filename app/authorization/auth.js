@@ -2,13 +2,14 @@
  * Created by tituswoo on 3/26/15.
  */
 
-angular.module('swapr').factory('Auth', ['$http', '$q', 'localStorageService', 'CONSTANTS',
-    function ($http, $q, localStorageService, CONSTANTS) {
+angular.module('swapr').factory('Auth', ['$http', '$q', '$state', 'localStorageService', 'CONSTANTS',
+    function ($http, $q, $state, localStorageService, CONSTANTS) {
 
         var token = localStorageService.get('token') || false;
         console.log('token: ' + token);
 
         var factory = {};
+
         factory.login = function (user, refresh) {
             refresh = refresh || false;
             return $q(function (resolve, reject) {
@@ -44,5 +45,10 @@ angular.module('swapr').factory('Auth', ['$http', '$q', 'localStorageService', '
             localStorageService.remove('token');
             if (refresh) location.reload();
         };
+
+        factory.loggedIn = function () {
+            return !!token;
+        };
+
         return factory;
     }]);

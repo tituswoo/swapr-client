@@ -9,13 +9,6 @@ angular.module('swapr.student').config(['localStorageServiceProvider', function(
 }]);
 
 angular.module('swapr.student').controller('MainCtrl', ['$scope', function ($scope) {
-    //Auth.login({
-    //    username: 'root',
-    //    password: 'root'
-    //}).then(function (data) {
-    //    console.log(data);
-    //});
-
     $scope.menuVisible = false;
 
     $scope.toggleMenu = function () {
@@ -27,8 +20,8 @@ angular.module('swapr.student').config(['$stateProvider', '$urlRouterProvider', 
     $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
-        .state('dashboard', {
-            url: '/dashboard',
+        .state('home', {
+            url: '/home',
             templateUrl: 'templates/student/dashboard.html',
             controller: 'DashboardCtrl'
         })
