@@ -20,8 +20,8 @@ angular.module('swapr.student').config(['$stateProvider', '$urlRouterProvider', 
     $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
-        .state('dashboard', {
-            url: '/dashboard',
+        .state('home', {
+            url: '/home',
             templateUrl: 'templates/student/dashboard.html',
             controller: 'DashboardCtrl'
         })

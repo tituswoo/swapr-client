@@ -18,6 +18,7 @@
     <script type="text/javascript" src="ajax.js"></script>
     <script type="text/javascript" src="swapr.student.js"></script>
     <script type="text/javascript" src="authorization/auth.js"></script>
+    <script type="text/javascript" src="authorization/session-buttons/session-buttons.js"></script>
     <script type="text/javascript" src="sidebar/SidebarCtrl.js"></script>
     <script type="text/javascript" src="dashboard/student/DashboardCtrl.js"></script>
     <script type="text/javascript" src="courses/CoursesService.js"></script>
@@ -39,9 +40,7 @@
 <body ng-controller="MainCtrl">
 <div id="menubar">
     <h1><a ui-sref="dashboard">SWAPR</a></h1>
-    <div id="profile-menu" ui-sref="profile">
-        <p>George P. Burdell</p>
-    </div>
+    <div session-buttons></div>
 </div>
 <div id="sidebar" ng-include="'templates/student/sidebar.html'">
 </div>

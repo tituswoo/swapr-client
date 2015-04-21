@@ -2,8 +2,8 @@
  * Created by tituswoo on 3/26/15.
  */
 
-angular.module('swapr').factory('Auth', ['$http', '$q', 'localStorageService', 'CONSTANTS',
-    function ($http, $q, localStorageService, CONSTANTS) {
+angular.module('swapr').factory('Auth', ['$http', '$q', '$state', 'localStorageService', 'CONSTANTS',
+    function ($http, $q, $state, localStorageService, CONSTANTS) {
 
         var token = localStorageService.get('token') || false;
         console.log('token: ' + token);
