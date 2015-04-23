@@ -2,12 +2,17 @@
  * Created by Vaughan on 3/9/2015.
  */
 
-angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
-    if ($scope.$parent.assignment){
-        $scope.$parent.assignment.type = 'Peer Review';
-    }
+angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$stateParams', 'Rubrics', 'Assignments', function ($scope, $stateParams, Rubrics, Assignments) {
+    $scope.assignment = $scope.$parent.assignment;
+    Rubrics.getRubrics($scope.assignment.id).then(function (rubricItems) {
+        //$scope.assignments = assignments;
+        $scope.rubric = rubricItems;
+        console.log(rubricItems);
+    });
+
     $scope.typeOptions = ['Peer Review', 'Calibration'];
 
+    //http://104.236.10.197/items/?assignment=2 (or assignment number)
     $scope.rubric = [
         {label: "Organizational Structure", remove:false, feedback: true},
         {label: "Content Models", remove:true, feedback: false},
@@ -16,14 +21,34 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
         {label: "Production Deilvery", remove:false, feedback: true}
     ];
 
-    $scope.save = function() {
-        $scope.$parent.assignment.rubric = $scope.rubric;
-        //TODO: How does Chris want this formatted?
-        $scope.$parent.assignment.due_date = $scope.dt;
-        console.log($scope.$parent.assignment);
+    $scope.save = function () {
+        $scope.assignment.rubric = $scope.rubric;
+        $scope.assignment.due_date = new Date($scope.dueDateControl.dueDate).toISOString();
+        Assignments.updateAssignment($scope.assignment).then(function () {
+            alert('assignment saved successfully.');
+        }).catch(function (e) {
+            alert('Error saving the assignment: ' + e);
+        });
+    };
+
+    $scope.cancel = function (e) {
+        e.preventDefault();
+        var confirmed = confirm('Are you sure? All changes will be lost.');
+        if (confirmed) {
+            $state.reload();
+        }
+    };
+
+    $scope.dueDateControl = {
+        format: 'MMMM dd, yyyy',
+        dueDate: $scope.assignment.due_date || new Date().toISOString(),
+        open: function () {
+            $scope.opened = true;
+        }
     };
 
     //Calendar functions
+    /*
     $scope.today = function() {
         $scope.dt = moment().format($scope.format);
         console.log($scope.dt)
@@ -51,7 +76,5 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
         formatYear: 'yy',
         startingDay: 1
     };
-
-    //Note: These are the datepicker's formats, NOT moment compliant
-    $scope.format = 'MM/dd/yyyy';
+    */
 }]);
