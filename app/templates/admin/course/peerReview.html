@@ -1,7 +1,7 @@
 <!--TODO: back button-->
 
 <h1>Peer Review</h1>
-<p>{{$parent.assignment.description}}</p>
+<p>{{assignment.description}}</p>
 
 <br/>
 
@@ -20,6 +20,7 @@
             {{assignment.instructions}}
         </textarea>
     </div>
+    <!--
     <div class="form-group">
         <label for="due-date">Due date:</label>
 
@@ -36,6 +37,12 @@
                 </p>
             </div>
         </div>
+    </div>
+    -->
+    <div class="form-group">
+        <label>Due date</label>
+        <input type="text" class="form-control" datepicker-popup="{{dueDateControl.format}}"
+               ng-model="dueDateControl.dueDate" is-open="opened" ng-click="dueDateControl.open()"/>
     </div>
     <div class="form-group">
         <label>
@@ -65,5 +72,9 @@
         </tr>
     </table>
 
-    <button type="submit" ng-click="save()">Save changes</button>
+    <div class="form-group">
+        <button type="submit" ng-click="save()">Save changes</button>
+        <button ng-click="cancel($event)">Cancel</button>
+    </div>
+
 </form>
