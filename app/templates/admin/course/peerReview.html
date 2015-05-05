@@ -10,10 +10,12 @@
         <label for="title">Title:</label>
         <input type="text" class="form-control" id="title" ng-model="assignment.description" required>
     </div>
+    <!--
     <div class="dropdown">
         <label for="type">Type:</label>
         <select id="type" ng-model="assignment.type" ng-options="typeOption for typeOption in typeOptions"></select>
     </div>
+    -->
     <div class="form-group">
         <label for="instructions">Instructions:</label>
         <textarea class="form-control" id="instructions" ng-model="assignment.instructions">
@@ -45,7 +47,6 @@
         <tr>
             <th>Label</th>
             <th>Remove</th>
-            <th>Feedback</th>
         </tr>
         <tr ng-repeat="item in rubric">
             <td>{{item.question}}</td>
