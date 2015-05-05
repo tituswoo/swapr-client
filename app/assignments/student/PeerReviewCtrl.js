@@ -2,6 +2,7 @@
  * Created by Vaughan on 10/24/2014.
  */
 angular.module('swapr').controller('PeerReviewCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
+    console.log("In student peer review view");
     $scope.assignment = {
         title: 'Lab 1 Video Upload',
         dueDate: '8/31/14',

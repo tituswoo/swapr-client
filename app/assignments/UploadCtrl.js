@@ -3,6 +3,7 @@
  */
 angular.module('swapr').controller('UploadCtrl',['$scope', '$stateParams', '$http', 'YoutubeValidation',
     function ($scope, $stateParams, $http, YoutubeValidation) {
+    console.log("In upload view");
     $scope.upload = {
         title: 'Lab 1 Video Upload',
         dueDate: '8/31/14',

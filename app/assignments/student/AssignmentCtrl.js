@@ -3,7 +3,7 @@
  */
 
 angular.module('swapr.student').controller('AssignmentCtrl', ['$scope', '$stateParams', 'Assignments', function ($scope, $stateParams, Assignments) {
-    Assignments.getAssignment($stateParams.id).success(function (assignment) {
-        $scope.assignment = assignment;
-    });
+    $scope.assignment = $scope.$parent.assignment;
+    $scope.curView = $scope.$parent.curView;
+    console.log("Assignment Ctrl scope:",$scope);
 }]);
