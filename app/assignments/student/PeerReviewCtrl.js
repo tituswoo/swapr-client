@@ -1,19 +1,15 @@
 /**
  * Created by Vaughan on 10/24/2014.
  */
-angular.module('swapr').controller('PeerReviewCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
-    console.log("In student peer review view");
-    $scope.assignment = {
-        title: 'Lab 1 Video Upload',
-        dueDate: '8/31/14',
-        dueTime: '11:59 pm',
-        status: 'Incomplete',
-        type: 'video',
-        id: $stateParams.id
-    };
+angular.module('swapr').controller('PeerReviewCtrl', ['$scope', '$stateParams', 'Rubrics', function ($scope, $stateParams, Rubrics) {
+    $scope.assignment = $scope.$parent.$parent.assignment;
 
-    $scope.rubric = "Let's get down to business/To defeat the Huns/Did they send me daughters/When I asked for sons?"+
-        "You're the saddest bunch/I ever met/But you can bet/Before we're through/Mister, I'll make a man out of you";
+    Rubrics.getRubrics($scope.assignment.id).then(function (rubricItems) {
+        //$scope.assignments = assignments;
+        $scope.rubric = rubricItems;
+        console.log(rubricItems);
+    });
+
 
     $scope.reviewList = [
         {

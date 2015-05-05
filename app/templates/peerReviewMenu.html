@@ -1,10 +1,9 @@
-<h1 class="title">Title here {{curAssignment.title}}</h1>
 <a class="card">
-    <p collapse="isCollapsed" ng-hide="isCollapsed">{{rubric}}</p>
-    <button ng-hide="isCollapsed" ng-click="hideReviews=false;isCollapsed = !isCollapsed" ng-init="hideReviews=true">
+    <p collapse="isCollapsed" ng-hide="isCollapsed">{{assignment.instructions}}</p>
+    <button ng-hide="isCollapsed" ng-click="hideInstructions=false;isCollapsed = !isCollapsed" ng-init="hideInstructions=true">
         Okay, show me the videos
     </button>
-    <button ng-hide="!isCollapsed" ng-click="isCollapsed = !isCollapsed">Show the rubric</button>
+    <button ng-hide="!isCollapsed" ng-click="isCollapsed = !isCollapsed">Show instructions</button>
 </a>
 
 <a class="card" ng-repeat="review in reviewList" ng-hide="hideReviews" ui-sref="gradeVideo">
