@@ -4,6 +4,7 @@
 
 angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$stateParams', 'Rubrics', 'Assignments', function ($scope, $stateParams, Rubrics, Assignments) {
     $scope.assignment = $scope.$parent.assignment;
+    console.log($scope.assignment);
     Rubrics.getRubrics($scope.assignment.id).then(function (rubricItems) {
         //$scope.assignments = assignments;
         $scope.rubric = rubricItems;
@@ -13,6 +14,7 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
     $scope.typeOptions = ['Peer Review', 'Calibration'];
 
     //http://104.236.10.197/items/?assignment=2 (or assignment number)
+    /*
     $scope.rubric = [
         {label: "Organizational Structure", remove:false, feedback: true},
         {label: "Content Models", remove:true, feedback: false},
@@ -20,6 +22,7 @@ angular.module('swapr.admin').controller('PeerReviewCtrl', ['$scope', '$statePar
         {label: "Content Overall", remove:true, feedback: true},
         {label: "Production Deilvery", remove:false, feedback: true}
     ];
+    */
 
     $scope.save = function () {
         $scope.assignment.rubric = $scope.rubric;
